@@ -27,14 +27,6 @@ public class GPGSManager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.InitializeInstance(playGamesConfig);
         PlayGamesPlatform.Activate();
-        // Trying silent sign-in
-        Social.Active.localUser.Authenticate((bool p_success) =>
-        {
-            if(p_success)
-                Debug.Log($"[GameServices] Signed in as {Social.Active.localUser.userName}!");
-            else
-            Debug.Log($"[GameServices] Sign-in failed...");
-        });
     }
 
     #region [-----     ACHIEVEMENTS     -----]

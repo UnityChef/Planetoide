@@ -19,7 +19,7 @@ namespace EcoMundi.Managers
         {
             yield return Timing.WaitForOneFrame;
             // Trying silent sign-in
-            //Social.Active.localUser.Authenticate(SignInCallback);
+            Social.Active.localUser.Authenticate(SignInCallback);
 
             yield break;
         }
