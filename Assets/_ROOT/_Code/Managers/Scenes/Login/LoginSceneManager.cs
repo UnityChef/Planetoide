@@ -5,6 +5,7 @@ using GooglePlayGames.BasicApi;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MEC;
 
 namespace EcoMundi.Managers
 {
@@ -14,14 +15,13 @@ namespace EcoMundi.Managers
         public TMP_Text authStatusLabel;
         public TMP_Text signInButtonLabel;
 
-        private void Start()
+        private IEnumerator Start()
         {
+            yield return Timing.WaitForOneFrame;
             // Trying silent sign-in
-            Social.Active.localUser.Authenticate(SignInCallback);
+            //Social.Active.localUser.Authenticate(SignInCallback);
 
-            // </END>
-
-
+            yield break;
         }
 
         #region [-----     GOOGLE PLAY GAMES SERVICES     -----]

@@ -8,7 +8,7 @@ namespace EcoMundi.Managers
     {
         private void Start()
         {
-            GPGSManager.Instance.UnlockAchievement(E_Achievement.WelcomeToEcoMundi);
+            GPGSManager.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi);
         }
 
         public void QuitGame()
