@@ -11,6 +11,9 @@ namespace EcoMundi.Managers
 {
     public class LoginSceneManager : MonoBehaviour
     {
+        [Header("Canvas manager")]
+        public LoginCanvasManager canvasManager;
+
         [Header("Game Services")]
         public TMP_Text authStatusLabel;
         public TMP_Text signInButtonLabel;
@@ -50,6 +53,8 @@ namespace EcoMundi.Managers
 
                 signInButtonLabel.text = "Sign out";
                 authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
+
+                canvasManager.playButtonObject.SetActive(true);
             }
             else
             {
