@@ -14,16 +14,8 @@ namespace EcoMundi.Managers
         public TMP_Text authStatusLabel;
         public TMP_Text signInButtonLabel;
 
-
-
         private void Start()
         {
-            // <START> GooglePlayGames init
-            PlayGamesClientConfiguration playGamesConfig = new PlayGamesClientConfiguration.Builder().Build();
-            // Enable DEBUG output
-            PlayGamesPlatform.DebugLogEnabled = true;
-            PlayGamesPlatform.InitializeInstance(playGamesConfig);
-            PlayGamesPlatform.Activate();
             // Trying silent sign-in
             Social.Active.localUser.Authenticate(SignInCallback);
 
@@ -32,7 +24,7 @@ namespace EcoMundi.Managers
 
         }
 
-        #region [-----     PLAY GAMES SERVICES     -----]
+        #region [-----     GOOGLE PLAY GAMES SERVICES     -----]
 
         public void SignInToPlayServicesButton()
         {
