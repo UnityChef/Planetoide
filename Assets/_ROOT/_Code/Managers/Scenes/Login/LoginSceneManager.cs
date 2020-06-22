@@ -25,7 +25,7 @@ namespace EcoMundi.Managers
             PlayGamesPlatform.InitializeInstance(playGamesConfig);
             PlayGamesPlatform.Activate();
             // Trying silent sign-in
-            PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
+            Social.Active.localUser.Authenticate(SignInCallback);
 
             // </END>
 
@@ -36,9 +36,9 @@ namespace EcoMundi.Managers
 
         public void SignInToPlayServicesButton()
         {
-            if (!PlayGamesPlatform.Instance.localUser.authenticated)
+            if (!Social.Active.localUser.authenticated)
             {
-                PlayGamesPlatform.Instance.Authenticate(SignInCallback, false);
+                Social.Active.localUser.Authenticate(SignInCallback);
             }
             else
             {
@@ -57,7 +57,7 @@ namespace EcoMundi.Managers
                 Debug.Log($"[GameServices] Signed in !");
 
                 signInButtonLabel.text = "Sign out";
-                authStatusLabel.text = $"Signed in as: {Social.localUser.userName}";
+                authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
             }
             else
             {

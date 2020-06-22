@@ -24,7 +24,9 @@
 
 public static class GPGSIds
 {
+        public const string achievement_tu_mundi_ha_nacido = "CgkI7ZuPwoYfEAIQAg"; // <GPGSID>
         public const string leaderboard_mundi_ms_viejo = "CgkI7ZuPwoYfEAIQAQ"; // <GPGSID>
+        public const string achievement_accin_ecolgica = "CgkI7ZuPwoYfEAIQAw"; // <GPGSID>
 
 }
 
