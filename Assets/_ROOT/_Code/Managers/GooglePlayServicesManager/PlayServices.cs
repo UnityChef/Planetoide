@@ -225,6 +225,7 @@ public class PlayServices : MonoBehaviour
                 try
                 {
                     _gameData = DeserializeGameData(data);
+                    Debug.Log($"Data Loaded: {data}");
                 }
                 catch (Exception e)
                 {

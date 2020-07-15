@@ -54,7 +54,7 @@ namespace EcoMundi.Managers
 
             canvasManager.playButtonObject.SetActive(true);
 
-           // PlayServices.Instance.LoadGameData();
+            PlayServices.Instance.LoadGameData();
         }
 
         private void SignInFailCallback()
