@@ -31,7 +31,7 @@ namespace EcoMundi.Managers
 
         public void QuitGame()
         {
-            PlayServices.Instance.SaveGameData();
+            PlayServices.Instance.SaveCurrentGameData();
 
             Application.Quit();
 
