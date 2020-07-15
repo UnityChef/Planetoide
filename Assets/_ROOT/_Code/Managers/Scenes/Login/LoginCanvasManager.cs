@@ -13,7 +13,7 @@ namespace EcoMundi.Managers
 
         private IEnumerator Start()
         {
-            playButtonObject.SetActive(false);
+           // playButtonObject.SetActive(false);
             signInButtonObject.SetActive(false);
 
             yield return Timing.WaitForOneFrame;

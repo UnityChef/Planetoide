@@ -16,6 +16,8 @@ namespace EcoMundi.Managers
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            Application.targetFrameRate = 30;
         }
 
         private void Start()

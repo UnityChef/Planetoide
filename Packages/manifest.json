@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "2.5.0",
     "com.unity.device-simulator": "2.2.2-preview",
     "com.unity.mobile.notifications": "1.0.3",

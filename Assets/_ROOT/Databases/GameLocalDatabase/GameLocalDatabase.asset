@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba3369d4301354419b6ec9e42850ef6, type: 3}
+  m_Name: GameLocalDatabase
+  m_EditorClassIdentifier: 
+  provinceDatabase:
+  - province: 1
+    symbolPrefab: {fileID: 0}
+  - province: 2
+    symbolPrefab: {fileID: 0}
+  - province: 3
+    symbolPrefab: {fileID: 0}
+  - province: 4
+    symbolPrefab: {fileID: 0}
+  - province: 5
+    symbolPrefab: {fileID: 0}
+  - province: 6
+    symbolPrefab: {fileID: 0}
+  - province: 7
+    symbolPrefab: {fileID: 0}
+  - province: 8
+    symbolPrefab: {fileID: 0}
+  - province: 9
+    symbolPrefab: {fileID: 0}
+  - province: 10
+    symbolPrefab: {fileID: 0}
+  - province: 11
+    symbolPrefab: {fileID: 0}
+  - province: 12
+    symbolPrefab: {fileID: 0}
+  - province: 13
+    symbolPrefab: {fileID: 0}
+  - province: 14
+    symbolPrefab: {fileID: 0}
+  - province: 15
+    symbolPrefab: {fileID: 0}
+  - province: 16
+    symbolPrefab: {fileID: 0}
+  - province: 17
+    symbolPrefab: {fileID: 0}
+  - province: 18
+    symbolPrefab: {fileID: 0}
+  - province: 19
+    symbolPrefab: {fileID: 0}
+  - province: 20
+    symbolPrefab: {fileID: 0}
+  - province: 21
+    symbolPrefab: {fileID: 0}
+  - province: 22
+    symbolPrefab: {fileID: 0}
+  - province: 23
+    symbolPrefab: {fileID: 0}
+  - province: 24
+    symbolPrefab: {fileID: 0}
+  quizDatabase:
+  - question: "\xBFCuanto normalmente demoras en ducharte?"
+    quizType: 0
+    answerOptions:
+    - answer: 5 minutos
+      isCorrect: 1
+    - answer: 7 minutos
+      isCorrect: 0
+    - answer: 10 minutos
+      isCorrect: 0
+    answerFeedback: "Tu ducha deber\xEDa limitarse a 5 minutos para un uso sostenible
+      de agua y energ\xEDa."
+  - question: "\xBFQu\xE9 medio de transporte quieres usar para ir al colegio?"
+    quizType: 1
+    answerOptions:
+    - answer: Caminar o bicicleta
+      isCorrect: 1
+    - answer: "Autom\xF3vil"
+      isCorrect: 0
+    - answer: Autobus
+      isCorrect: 0
+    answerFeedback: "Caminar o andar en bicicleta son las mejores opciones, el uso
+      de veh\xEDculo privado emite mucho CO2 y da\xF1a los bosque."
+  - question: "\xBFQu\xE9 haces con tu cargador cuando terminas de cargar tu celular?"
+    quizType: 0
+    answerOptions:
+    - answer: Desconectarlo
+      isCorrect: 1
+    - answer: Dejar conectado
+      isCorrect: 0
+    answerFeedback: "Un cargador conectado consume energ\xEDa"
+  - question: "La camiseta bonita que ya no te queda (porque creciste). Qu\xE9 podr\xEDas
+      hacer con ella?"
+    quizType: 2
+    answerOptions:
+    - answer: Regalar para reutilizar
+      isCorrect: 1
+    - answer: Olvidarla
+      isCorrect: 0
+    - answer: Botarla
+      isCorrect: 0
+    answerFeedback: "La producci\xF3n de ropa genera emisiones de gases de efecto
+      invernadero. Se recomienda  reciclar reutilizar la ropa que est\xE9 en buen
+      estado"
+  - question: "La tele est\xE1 prendida en casa cuando:"
+    quizType: 0
+    answerOptions:
+    - answer: "Estoy viendo alg\xFAn programa que me interesa"
+      isCorrect: 0
+    - answer: Como ruido de fondo
+      isCorrect: 0
+    - answer: Todo el tiempo, incluso cuando no estoy en casa
+      isCorrect: 0
+    answerFeedback: "Si no usas un dispositivo que consume energ\xEDa, es importante
+      apagarlo."
+  - question: "\xBFCu\xE1ndo haces tareas escolares?"
+    quizType: 0
+    answerOptions:
+    - answer: "Despu\xE9s de las clases en la tarde"
+      isCorrect: 1
+    - answer: En la noche
+      isCorrect: 0
+    - answer: nunca
+      isCorrect: 0
+    answerFeedback: "Haz tus tareas en la luz del sol para evitar usar luz el\xE9ctrico"
+  - question: 'Cuando tienes ganas de tomar agua:'
+    quizType: 3
+    answerOptions:
+    - answer: Relleno una botella reutilizable que llevo conmigo a todas partes
+      isCorrect: 1
+    - answer: "Compro una botella de pl\xE1stico "
+      isCorrect: 0
+    answerFeedback: "Cada botella de pl\xE1stico que compras genera mayor basura 
+      y contaminaci\xF3n despu\xE9s de su uso y mayores emisiones de carbono para
+      su producci\xF3n"
+  - question: Te gusta comprar cosas nuevas o usadas?
+    quizType: 2
+    answerOptions:
+    - answer: Usadas
+      isCorrect: 0
+    - answer: Nueva
+      isCorrect: 1
+    answerFeedback: "Cada producto nuevo tiene una cadena de producci\xF3n que genera
+      contaminaci\xF3n y basura"

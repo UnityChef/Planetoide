@@ -22,7 +22,7 @@ namespace EcoMundi.Managers
         {
             yield return Timing.WaitForOneFrame;
             // Trying silent sign-in
-            Social.Active.localUser.Authenticate(SignInCallback);
+            Social.localUser.Authenticate(SignInCallback);
 
             yield break;
         }
@@ -31,9 +31,9 @@ namespace EcoMundi.Managers
 
         public void SignInToPlayServicesButton()
         {
-            if (!Social.Active.localUser.authenticated)
+            if (!Social.localUser.authenticated)
             {
-                Social.Active.localUser.Authenticate(SignInCallback);
+                Social.localUser.Authenticate(SignInCallback);
             }
             else
             {
@@ -55,6 +55,8 @@ namespace EcoMundi.Managers
                 authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
 
                 canvasManager.playButtonObject.SetActive(true);
+
+                PlayServices.Instance.LoadGameData();
             }
             else
             {

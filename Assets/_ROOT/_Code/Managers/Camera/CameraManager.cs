@@ -8,10 +8,12 @@ namespace EcoMundi.Managers
     public class CameraManager : MonoBehaviour
     {
         [Header("Configs")]
-        [Range(0f, -20f)]
+        [Range(-10f, -20f)]
         public float cameraDistance;
         private Vector3 _cameraOffset;
-        [Range(0f,360f)]
+        private float _cameraZoomValue;
+
+        [Range(0f,359f)]
         public float swipeOrbitAngle;
 
         [Header("Components")]
@@ -38,6 +40,7 @@ namespace EcoMundi.Managers
         }
         private void Start()
         {
+            _cameraZoomValue = cameraDistance;
             _myCamera.transform.localPosition = new Vector3(0, 0, cameraDistance);
         }
 
@@ -68,7 +71,10 @@ namespace EcoMundi.Managers
 
         public void ModifyZoom(float p_zoomValue)
         {
-            _myCamera.transform.localPosition = new Vector3(0, 0, -p_zoomValue);
+            _cameraZoomValue += p_zoomValue;
+            _cameraZoomValue = Mathf.Clamp(_cameraZoomValue, -20f, -8f);
+
+            _myCamera.transform.localPosition = new Vector3(0, 0, _cameraZoomValue);
         }
     }
 }
