@@ -22,7 +22,7 @@ namespace EcoMundi.Managers
         {
             yield return Timing.WaitForOneFrame;
             // Trying silent sign-in
-            Social.localUser.Authenticate(SignInCallback);
+            PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
 
             yield break;
         }
@@ -33,7 +33,7 @@ namespace EcoMundi.Managers
         {
             if (!Social.localUser.authenticated)
             {
-                Social.localUser.Authenticate(SignInCallback);
+                PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
             }
             else
             {
@@ -45,27 +45,26 @@ namespace EcoMundi.Managers
         }
 
 
-        private void SignInCallback(bool p_success)
+        private void SignInSuccessCallback()
         {
-            if (p_success)
-            {
-                Debug.Log($"[GameServices] Signed in !");
+            Debug.Log($"[GameServices] Signed in !");
 
-                signInButtonLabel.text = "Sign out";
-                authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
+            signInButtonLabel.text = "Sign out";
+            authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
 
-                canvasManager.playButtonObject.SetActive(true);
+            canvasManager.playButtonObject.SetActive(true);
 
-                PlayServices.Instance.LoadGameData();
-            }
-            else
-            {
-                Debug.Log($"[GameServices] Sign-in failed...");
-
-                signInButtonLabel.text = "Sign in";
-                authStatusLabel.text = $"Sign-in failed...";
-            }
+            PlayServices.Instance.LoadGameData();
         }
+
+        private void SignInFailCallback()
+        {
+            Debug.Log($"[GameServices] Sign-in failed...");
+
+            signInButtonLabel.text = "Sign in";
+            authStatusLabel.text = $"Sign-in failed...";
+        }
+
 
         #endregion
 

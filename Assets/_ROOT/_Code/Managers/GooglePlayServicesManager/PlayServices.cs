@@ -19,7 +19,7 @@ public class PlayServices : MonoBehaviour
     // SAVE
     [SerializeField]
     public GameData _gameData;
-    private string cloudSaveName = "EcoMundiData";
+    private string _cloudSaveName = "EcoMundiData";
     private BinaryFormatter _formatter;
 
     private void Awake()
@@ -52,7 +52,10 @@ public class PlayServices : MonoBehaviour
             Social.localUser.Authenticate((bool success) =>
             {
                 if (success)
+                {
+
                     p_successCallback?.Invoke();
+                }
             });
         }
         catch (Exception exception)
@@ -142,7 +145,7 @@ public class PlayServices : MonoBehaviour
     private void OpenCloudSave(Action<SavedGameRequestStatus, ISavedGameMetadata> p_callback)
     {
         var platform = (PlayGamesPlatform)Social.Active;
-        platform.SavedGame.OpenWithAutomaticConflictResolution(cloudSaveName, DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, p_callback);
+        platform.SavedGame.OpenWithAutomaticConflictResolution(_cloudSaveName, DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, p_callback);
     }
 
     public void SaveGameData()
@@ -160,8 +163,8 @@ public class PlayServices : MonoBehaviour
             .WithUpdatedDescription($"Last save: {System.DateTime.Now}")
             .Build();
 
-            ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
-            savedGameClient.CommitUpdate(p_meta, update, savedGameData, DataSavedCallback);
+            var platform = (PlayGamesPlatform)Social.Active;
+            platform.SavedGame.CommitUpdate(p_meta, update, savedGameData, DataSavedCallback);
         }
     }
 
@@ -185,6 +188,10 @@ public class PlayServices : MonoBehaviour
         {
             var platform = (PlayGamesPlatform)Social.Active;
             platform.SavedGame.ReadBinaryData(p_meta, LoadCallback);
+        }
+        else
+        {
+            Debug.Log("Cannot load data from server");
         }
     }
 

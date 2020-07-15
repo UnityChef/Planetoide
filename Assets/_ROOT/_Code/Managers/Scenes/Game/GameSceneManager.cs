@@ -31,9 +31,9 @@ namespace EcoMundi.Managers
 
         public void QuitGame()
         {
-            Application.Quit();
-
             PlayServices.Instance.SaveGameData();
+
+            Application.Quit();
 
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
