@@ -212,7 +212,44 @@ public class PlayServices : MonoBehaviour
         ReadSavedGame(readCallback);
     }
 
-   
+   public void LoadGameData()
+    {
+        ISavedGameMetadata currentGame = null;
+
+
+        // CALLBACK: Handle the result of a binary read
+        Action<SavedGameRequestStatus, byte[]> readBinaryCallback =
+        (SavedGameRequestStatus status, byte[] data) => {
+            if (status == SavedGameRequestStatus.Success)
+            {
+                try
+                {
+                    _gameData = DeserializeGameData(data);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("Game Data was not loaded");
+                }
+            }
+        };
+
+        // CALLBACK: Handle the result of a read, which should return metadata
+        Action<SavedGameRequestStatus, ISavedGameMetadata> readCallback =
+        (SavedGameRequestStatus status, ISavedGameMetadata game) => {
+            Debug.Log("(Lollygagger) Saved Game Read: " + status.ToString());
+            if (status == SavedGameRequestStatus.Success)
+            {
+                // Read the binary game data
+                currentGame = game;
+                PlayGamesPlatform.Instance.SavedGame.ReadBinaryData(game,
+                                                    readBinaryCallback);
+            }
+        };
+
+        // Read the current data and kick off the callback chain
+        Debug.Log("(Lollygagger) Saved Game: Reading");
+        ReadSavedGame(readCallback);
+    }
 
     /*
     // <--  SAVE DATA  -->
