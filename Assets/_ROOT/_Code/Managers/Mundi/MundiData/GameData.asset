@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3136c84e1fc0944a72d24785baadae, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  province: 0
   mundiName: 
-  daysAlive: 0
+  gameDays: 0
+  gamePoints: 0
+  shopPoints: 0
+  difficultyModifier: 1.5
   MAX_HEALTH: 100
   currentHealth: 100
-  secondsPlayed: 0

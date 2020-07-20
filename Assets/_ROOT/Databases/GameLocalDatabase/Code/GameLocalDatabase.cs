@@ -66,7 +66,10 @@ namespace EcoMundi.Data
     {
         [TextArea(2,4)]
         public string question;
-        public E_QuizType quizType;
+        [Space]
+        public E_ZoneType affectedZoneOne;
+        public E_ZoneType affectedZoneTwo;
+        [Space]
         public List<AnswerData> answerOptions;
         [TextArea(2,4)]
         public string answerFeedback;

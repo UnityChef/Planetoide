@@ -6,10 +6,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class GameCanvasManager : MonoBehaviour
 {
-    [Header("Data")]
+    [Header("UI")]
+    public TMP_Text mundiNameLabel;
+    [Space]
+    public TMP_Text gameDaysLabel;
+    public TMP_Text gamePointsLabel;
+    public TMP_Text shopPointsLabel;
+
+
+    [Header("LeftSideBar")]
+    public GameObject achievementsButtonObject;
+    public GameObject leaderboardButtonObject;
+
+    [Header("Game Data")]
+    public GameData gameData;
+
+    [Header("Quizes Data")]
     public GameLocalDatabase localDatabase;
     private int _randomQuizIndex;
 
@@ -17,7 +33,7 @@ public class GameCanvasManager : MonoBehaviour
     public GameObject quizQuestionScreen;
     public TMP_Text quizQuestionLabel;
     [Space]
-    public List<GameObject> answerButtonList;
+    public List<Button> answerButtonList;
     [Space]
     public List<TMP_Text> answerButtonLabelList;
     
@@ -30,12 +46,56 @@ public class GameCanvasManager : MonoBehaviour
     public RectTransform healthBarRectTransform;
     public TMP_Text healthBarValueLabel;
 
-
+    // QUIZZES
+    private int _cachedAnswerIndex;
 
     private void Start()
     {
         Timing.RunCoroutine(C_DecreaseHealth());
+
+        mundiNameLabel.text = gameData.mundiName;
+        ModifyHealthBar();
+
+        gameDaysLabel.text = 
+        gamePointsLabel.text = gameData.GetGamePoints();
+        shopPointsLabel.text = gameData.GetShopPoints();
+
+        achievementsButtonObject.SetActive(Social.localUser.authenticated);
+        leaderboardButtonObject.SetActive(Social.localUser.authenticated);
+
+
+        GameData.OnGameDaysModified += ModifyGameDaysLabel;
+        GameData.OnGamePointsModified += ModifyGamePointsLabel;
+        GameData.OnShopPointsModified += ModifyShopPointsLabel;
+        GameData.OnHealthModified += ModifyHealthBar;
     }
+
+    private void OnDestroy()
+    {
+        GameData.OnGameDaysModified -= ModifyGameDaysLabel;
+        GameData.OnGamePointsModified -= ModifyGamePointsLabel;
+        GameData.OnShopPointsModified -= ModifyShopPointsLabel;
+        GameData.OnHealthModified -= ModifyHealthBar;
+    }
+
+    #region [-----     POINTS DELEGATES SUSCRIPTION METHODS     -----]
+
+    public void ModifyGameDaysLabel()
+    {
+        gameDaysLabel.text = gameData.GetGameDays();
+    }
+
+    public void ModifyGamePointsLabel()
+    {
+        gamePointsLabel.text = gameData.GetGamePoints();
+    }
+
+    public void ModifyShopPointsLabel()
+    {
+        shopPointsLabel.text = gameData.GetShopPoints();
+    }
+
+    #endregion
 
     #region [-----     SCREENS     -----]
 
@@ -45,33 +105,52 @@ public class GameCanvasManager : MonoBehaviour
 
         quizQuestionLabel.text = localDatabase.quizDatabase[_randomQuizIndex].question;
 
-        foreach (GameObject button in answerButtonList)
-            button.SetActive(false);
+        foreach (Button button in answerButtonList)
+            button.gameObject.SetActive(false);
 
         for (int i = 0; i < localDatabase.quizDatabase[_randomQuizIndex].answerOptions.Count; i++)
         {
-            answerButtonList[i].SetActive(true);
+            int index = i;
+            answerButtonList[i].gameObject.SetActive(true);
             answerButtonLabelList[i].text = localDatabase.quizDatabase[_randomQuizIndex].answerOptions[i].answer;
         }
-       
 
         quizQuestionScreen.SetActive(true);
+    }
 
+    // Called from the buttons at inspector
+    public void ButtonAnswerSetAnswerIndex(int p_index)
+    {
+        _cachedAnswerIndex = p_index;
 
+        quizQuestionScreen.SetActive(false);
+        ShowQuizResultScreen();
     }
 
     public void ShowQuizResultScreen() 
     {
+        if(localDatabase.quizDatabase[_randomQuizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
+        {
+            gameData.ModifyMundiHealth(1);
+            gameData.ModifyGamePoints(100);
+            gameData.ModifyShopPoints(5);
+
+            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneOne);
+            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneTwo);
+        }
+        else
+        {
+            gameData.ModifyMundiHealth(-1);
+
+            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneOne);
+            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneTwo);
+        }
+
         quizResultFeedbackLabel.text = localDatabase.quizDatabase[_randomQuizIndex].answerFeedback;
 
-        MundiManager.Instance.ModifyMundiHealth(1);
-        ModifyHealthBar(MundiManager.Instance.data.currentHealth);
-
-
-        quizQuestionScreen.SetActive(false);
         quizResultScreen.SetActive(true);
-
     }
+
 
     public void CloseQuizResultScreen()
     {
@@ -80,11 +159,11 @@ public class GameCanvasManager : MonoBehaviour
 
     #endregion
 
-    public void ModifyHealthBar(int p_currentHealth)
-    {
-        healthBarRectTransform.sizeDelta = new Vector2(p_currentHealth * 5f, 0f);
 
-        healthBarValueLabel.text = $"{p_currentHealth}%";
+    public void ModifyHealthBar()
+    {
+        healthBarRectTransform.sizeDelta = new Vector2(gameData.currentHealth * 5f, 0f);
+        healthBarValueLabel.text = $"{gameData.currentHealth}%";
     }
 
 
@@ -101,10 +180,9 @@ public class GameCanvasManager : MonoBehaviour
 
     private IEnumerator<float> C_DecreaseHealth()
     {
-        while(MundiManager.Instance.data.currentHealth > 0)
+        while(gameData.IsAlive)
         {
-            MundiManager.Instance.ModifyMundiHealth(-1);
-            ModifyHealthBar(MundiManager.Instance.data.currentHealth);
+            gameData.ModifyMundiHealth(-1);
 
             yield return Timing.WaitForSeconds(4f);
         }

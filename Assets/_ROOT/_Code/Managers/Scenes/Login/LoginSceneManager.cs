@@ -24,8 +24,15 @@ namespace EcoMundi.Managers
             // Trying silent sign-in
             PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
 
+            if (!GameManager.HasFirstTimePlayed)
+                canvasManager.ShowScreen(LoginCanvasManager.E_ScreenType.Welcome);
+            else
+                canvasManager.ShowScreen(LoginCanvasManager.E_ScreenType.Play);
+
             yield break;
         }
+
+        
 
         #region [-----     GOOGLE PLAY GAMES SERVICES     -----]
 
