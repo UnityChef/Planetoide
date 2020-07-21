@@ -32,6 +32,9 @@ namespace EcoMundi.Data
         public DateTime birthDate;// = new DateTime();
         public DateTime logOutDate;// = new DateTime();
 
+        // Achievements values
+        public int ecologicalActionsDone = 0;
+
         // Events
         public delegate void VoidDelegate();
         public static event VoidDelegate OnGameDaysModified;
@@ -103,6 +106,7 @@ namespace EcoMundi.Data
         }
 
 
+
         public void ModifyMundiHealth(int p_value)
         {
             currentHealth += p_value;
@@ -121,7 +125,86 @@ namespace EcoMundi.Data
 
         #region [-----     SAVE & LOAD     -----]
 
+        public void UpdateLeaderboardsValue()
+        {
+            PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Ecuador, gamePoints);
 
+            switch (province)
+            {
+                case E_Province.Galapagos:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Galapagos, gamePoints);
+                    break;
+                case E_Province.Esmeraldas:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Esmeraldas, gamePoints);
+                    break;
+                case E_Province.Manabi:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Manabi, gamePoints);
+                    break;
+                case E_Province.SantaElena:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.SantaElena, gamePoints);
+                    break;
+                case E_Province.LosRios:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.LosRios, gamePoints);
+                    break;
+                case E_Province.Guayas:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Guayas, gamePoints);
+                    break;
+                case E_Province.ElOro:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.ElOro, gamePoints);
+                    break;
+                case E_Province.SantoDomingo:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.SantoDomingo, gamePoints);
+                    break;
+                case E_Province.Pichincha:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Pichincha, gamePoints);
+                    break;
+                case E_Province.Tungurahua:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Tungurahua, gamePoints);
+                    break;
+                case E_Province.Cotopaxi:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Cotopaxi, gamePoints);
+                    break;
+                case E_Province.Carchi:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Carchi, gamePoints);
+                    break;
+                case E_Province.Chimborazo:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Chimborazo, gamePoints);
+                    break;
+                case E_Province.Imbabura:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Imbabura, gamePoints);
+                    break;
+                case E_Province.Loja:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Loja, gamePoints);
+                    break;
+                case E_Province.Bolivar:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Bolivar, gamePoints);
+                    break;
+                case E_Province.Azuay:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Azuay, gamePoints);
+                    break;
+                case E_Province.Cañar:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Cañar, gamePoints);
+                    break;
+                case E_Province.Sucumbios:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Sucumbios, gamePoints);
+                    break;
+                case E_Province.MoronaSantiago:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.MoronaSantiago, gamePoints);
+                    break;
+                case E_Province.Napo:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Napo, gamePoints);
+                    break;
+                case E_Province.ZamoraChinchipe:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.ZamoraChinchipe, gamePoints);
+                    break;
+                case E_Province.Orellana:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Orellana, gamePoints);
+                    break;
+                case E_Province.Pastaza:
+                    PlayServices.Instance.UpdateLeaderBoardScore(E_LeaderboardType.Pastaza, gamePoints);
+                    break;
+            }
+        }
 
         #endregion
 

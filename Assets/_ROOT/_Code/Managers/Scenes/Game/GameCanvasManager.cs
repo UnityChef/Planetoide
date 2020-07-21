@@ -137,6 +137,12 @@ public class GameCanvasManager : MonoBehaviour
 
             GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneOne);
             GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneTwo);
+
+            //  THIS NEEDS TO BE REFACTORED
+            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionFirst);
+            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionBronze);
+            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionSilver);
+            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionGold);
         }
         else
         {

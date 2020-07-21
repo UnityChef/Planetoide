@@ -1,4 +1,5 @@
 ﻿using EcoMundi.Data;
+using MEC;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace EcoMundi.Managers
 
         [Header("GameData")]
         public GameData gameData;
+
+        [Header("Stars")]
+        public ParticleSystem starsParticles;
 
         [Header("Sun")]
         public Transform sunTransform;
@@ -41,8 +45,11 @@ namespace EcoMundi.Managers
 
             if(Social.localUser.authenticated)
             {
-                PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi);
+                Timing.CallDelayed(2f, () => PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi));
             }
+
+            // Pauses Stars
+            Timing.CallDelayed(1f, () => starsParticles.Pause());
 
             carbonZoneManager.InitZoneTier(5);
             cropsZoneManager.InitZoneTier(5);
@@ -67,7 +74,9 @@ namespace EcoMundi.Managers
 
         private void OnApplicationQuit()
         {
-            gameData.logOutDate = DateTime.Now;    
+            gameData.logOutDate = DateTime.Now;
+
+            gameData.UpdateLeaderboardsValue();
             
             //PlayServices.Instance.SaveCurrentGameData();
         }

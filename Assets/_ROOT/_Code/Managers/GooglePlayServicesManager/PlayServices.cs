@@ -80,15 +80,46 @@ public class PlayServices : MonoBehaviour
 
     public void UnlockAchievement(E_AchievementType p_achievementType)
     {
+        if (!Social.localUser.authenticated)
+            return;
+
         switch (p_achievementType)
         {
             case E_AchievementType.WelcomeToEcoMundi:
-                
                 Social.ReportProgress(GPGSIds.achievement_tu_mundi_ha_nacido, 100f, null);
-
                 break;
 
-            default:
+            case E_AchievementType.EcologicalActionFirst:
+                Social.ReportProgress(GPGSIds.achievement_primera_accin_ecolgica, 100f, null);
+                break;
+        }
+    }
+
+    public void UpdateAchievementValue(E_AchievementType p_achievementType)
+    {
+        if (!Social.localUser.authenticated)
+            return;
+
+        switch (p_achievementType)
+        {
+            case E_AchievementType.EcologicalActionBronze:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_accin_ecolgica_bronce, 1, null);
+                break;
+            case E_AchievementType.EcologicalActionSilver:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_accin_ecolgica_plata, 1, null);
+                break;
+            case E_AchievementType.EcologicalActionGold:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_accin_ecolgica_oro, 1, null);
+                break;
+
+            case E_AchievementType.DailyTaskBronze:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_misiones_diarias_bronce, 1, null);
+                break;
+            case E_AchievementType.DailyTaskSilver:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_misiones_diarias_plata, 1, null);
+                break;
+            case E_AchievementType.DailyTaskGold:
+                PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.leaderboard_puntaje_el_oro, 1, null);
                 break;
         }
     }
@@ -104,15 +135,88 @@ public class PlayServices : MonoBehaviour
 
     public void UpdateLeaderBoardScore(E_LeaderboardType p_leaderboardType, int p_updateValue)
     {
+        if (!Social.localUser.authenticated)
+            return;
+
         switch (p_leaderboardType)
         {
             case E_LeaderboardType.ElderMundi:
-
                 Social.ReportScore(p_updateValue, GPGSIds.leaderboard_mundi_ms_viejo, null);
-
                 break;
-            
-            default:
+            case E_LeaderboardType.Ecuador:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_ecuador, null);
+                break;
+            case E_LeaderboardType.Galapagos:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_galpagos, null);
+                break;
+            case E_LeaderboardType.Esmeraldas:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_esmeraldas, null);
+                break;
+            case E_LeaderboardType.Manabi:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_manab, null);
+                break;
+            case E_LeaderboardType.SantaElena:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_santa_elena, null);
+                break;
+            case E_LeaderboardType.LosRios:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_los_rios, null);
+                break;
+            case E_LeaderboardType.Guayas:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_guayas, null);
+                break;
+            case E_LeaderboardType.ElOro:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_el_oro, null);
+                break;
+            case E_LeaderboardType.SantoDomingo:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_santo_domingo, null);
+                break;
+            case E_LeaderboardType.Pichincha:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_pichincha, null);
+                break;
+            case E_LeaderboardType.Tungurahua:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_tungurahua, null);
+                break;
+            case E_LeaderboardType.Cotopaxi:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_cotopaxi, null);
+                break;
+            case E_LeaderboardType.Carchi:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_carchi, null);
+                break;
+            case E_LeaderboardType.Chimborazo:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_chimborazo, null);
+                break;
+            case E_LeaderboardType.Imbabura:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_imbabura, null);
+                break;
+            case E_LeaderboardType.Loja:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_loja, null);
+                break;
+            case E_LeaderboardType.Bolivar:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_bolivar, null);
+                break;
+            case E_LeaderboardType.Azuay:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_azuay, null);
+                break;
+            case E_LeaderboardType.Cañar:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_caar, null);
+                break;
+            case E_LeaderboardType.Sucumbios:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_sucumbios, null);
+                break;
+            case E_LeaderboardType.MoronaSantiago:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_morona_santiago, null);
+                break;
+            case E_LeaderboardType.Napo:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_napo, null);
+                break;
+            case E_LeaderboardType.ZamoraChinchipe:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_zamora_chinchipe, null);
+                break;
+            case E_LeaderboardType.Orellana:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_orellana, null);
+                break;
+            case E_LeaderboardType.Pastaza:
+                Social.ReportScore(p_updateValue, GPGSIds.leaderboard_puntaje_pastaza, null);
                 break;
         }
     }
@@ -321,14 +425,51 @@ public class PlayServices : MonoBehaviour
 public enum E_AchievementType
 {
     None,
-    WelcomeToEcoMundi
-
+    WelcomeToEcoMundi,
+    EcologicalActionFirst,
+    EcologicalActionBronze,
+    EcologicalActionSilver,
+    EcologicalActionGold,
+    DailyTaskBronze,
+    DailyTaskSilver,
+    DailyTaskGold
 }
 
 public enum E_LeaderboardType
 {
     None,
-    ElderMundi
+    ElderMundi,
+
+    Ecuador,
+
+    Galapagos,
+
+    Esmeraldas,
+    Manabi,
+    SantaElena,
+    LosRios,
+    Guayas,
+    ElOro,
+    SantoDomingo,
+
+    Pichincha,
+    Tungurahua,
+    Cotopaxi,
+    Carchi,
+    Chimborazo,
+    Imbabura,
+    Loja,
+    Bolivar,
+    Azuay,
+    Cañar,
+
+    Sucumbios,
+    MoronaSantiago,
+    Napo,
+    ZamoraChinchipe,
+    Orellana,
+    Pastaza
+
 }
 
 public enum E_DataFiles

@@ -24,9 +24,40 @@
 
 public static class GPGSIds
 {
+        public const string achievement_accin_ecolgica_bronce = "CgkI7ZuPwoYfEAIQHQ"; // <GPGSID>
+        public const string leaderboard_puntaje_guayas = "CgkI7ZuPwoYfEAIQCg"; // <GPGSID>
+        public const string leaderboard_puntaje_imbabura = "CgkI7ZuPwoYfEAIQEg"; // <GPGSID>
+        public const string leaderboard_puntaje_loja = "CgkI7ZuPwoYfEAIQEw"; // <GPGSID>
         public const string achievement_tu_mundi_ha_nacido = "CgkI7ZuPwoYfEAIQAg"; // <GPGSID>
+        public const string leaderboard_puntaje_el_oro = "CgkI7ZuPwoYfEAIQCw"; // <GPGSID>
+        public const string achievement_misiones_diarias_plata = "CgkI7ZuPwoYfEAIQIQ"; // <GPGSID>
+        public const string leaderboard_puntaje_esmeraldas = "CgkI7ZuPwoYfEAIQBg"; // <GPGSID>
+        public const string achievement_misiones_diarias_oro = "CgkI7ZuPwoYfEAIQIg"; // <GPGSID>
+        public const string leaderboard_puntaje_santa_elena = "CgkI7ZuPwoYfEAIQCA"; // <GPGSID>
+        public const string leaderboard_puntaje_orellana = "CgkI7ZuPwoYfEAIQGw"; // <GPGSID>
+        public const string leaderboard_puntaje_santo_domingo = "CgkI7ZuPwoYfEAIQDA"; // <GPGSID>
+        public const string leaderboard_puntaje_carchi = "CgkI7ZuPwoYfEAIQEA"; // <GPGSID>
+        public const string leaderboard_puntaje_pichincha = "CgkI7ZuPwoYfEAIQDQ"; // <GPGSID>
+        public const string leaderboard_puntaje_chimborazo = "CgkI7ZuPwoYfEAIQEQ"; // <GPGSID>
+        public const string achievement_accin_ecolgica_oro = "CgkI7ZuPwoYfEAIQHw"; // <GPGSID>
+        public const string leaderboard_puntaje_galpagos = "CgkI7ZuPwoYfEAIQBQ"; // <GPGSID>
+        public const string leaderboard_puntaje_manab = "CgkI7ZuPwoYfEAIQBw"; // <GPGSID>
+        public const string leaderboard_puntaje_sucumbios = "CgkI7ZuPwoYfEAIQFw"; // <GPGSID>
         public const string leaderboard_mundi_ms_viejo = "CgkI7ZuPwoYfEAIQAQ"; // <GPGSID>
-        public const string achievement_accin_ecolgica = "CgkI7ZuPwoYfEAIQAw"; // <GPGSID>
+        public const string achievement_primera_accin_ecolgica = "CgkI7ZuPwoYfEAIQAw"; // <GPGSID>
+        public const string leaderboard_puntaje_caar = "CgkI7ZuPwoYfEAIQFg"; // <GPGSID>
+        public const string leaderboard_puntaje_azuay = "CgkI7ZuPwoYfEAIQFQ"; // <GPGSID>
+        public const string leaderboard_puntaje_zamora_chinchipe = "CgkI7ZuPwoYfEAIQGg"; // <GPGSID>
+        public const string leaderboard_puntaje_morona_santiago = "CgkI7ZuPwoYfEAIQGA"; // <GPGSID>
+        public const string leaderboard_puntaje_los_rios = "CgkI7ZuPwoYfEAIQCQ"; // <GPGSID>
+        public const string leaderboard_puntaje_ecuador = "CgkI7ZuPwoYfEAIQBA"; // <GPGSID>
+        public const string leaderboard_puntaje_pastaza = "CgkI7ZuPwoYfEAIQHA"; // <GPGSID>
+        public const string achievement_misiones_diarias_bronce = "CgkI7ZuPwoYfEAIQIA"; // <GPGSID>
+        public const string leaderboard_puntaje_napo = "CgkI7ZuPwoYfEAIQGQ"; // <GPGSID>
+        public const string leaderboard_puntaje_bolivar = "CgkI7ZuPwoYfEAIQFA"; // <GPGSID>
+        public const string achievement_accin_ecolgica_plata = "CgkI7ZuPwoYfEAIQHg"; // <GPGSID>
+        public const string leaderboard_puntaje_cotopaxi = "CgkI7ZuPwoYfEAIQDw"; // <GPGSID>
+        public const string leaderboard_puntaje_tungurahua = "CgkI7ZuPwoYfEAIQDg"; // <GPGSID>
 
 }
 
