@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class GameCanvasManager : MonoBehaviour
 {
+    public static GameCanvasManager Instance;
+
     [Header("UI")]
     public TMP_Text mundiNameLabel;
     [Space]
@@ -48,6 +50,11 @@ public class GameCanvasManager : MonoBehaviour
 
     // QUIZZES
     private int _cachedAnswerIndex;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -99,7 +106,8 @@ public class GameCanvasManager : MonoBehaviour
 
     #region [-----     SCREENS     -----]
 
-    public void ShowQuizQuestionScreen()
+    // This function is used to call a new Question from the QuizQuestionList
+    public void ShowQuizQuestion()
     {
         _randomQuizIndex = Random.Range(0, localDatabase.quizDatabase.Count);
 

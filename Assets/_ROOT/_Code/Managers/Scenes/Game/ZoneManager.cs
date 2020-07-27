@@ -45,8 +45,8 @@ public class ZoneManager : MonoBehaviour
         for (int i = 0; i < tierGroupsList.Count; i++)
             tierGroupsList[i].SetActive(false);
 
-        for (int i = 0; i < zoneTierValue; i++)
-            tierGroupsList[i].SetActive(true);
+        if(zoneTierValue != 0)
+            tierGroupsList[zoneTierValue - 1].SetActive(true);
     }
 
     #endregion

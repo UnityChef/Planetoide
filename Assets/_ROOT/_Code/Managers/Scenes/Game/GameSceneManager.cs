@@ -15,6 +15,16 @@ namespace EcoMundi.Managers
         [Header("GameData")]
         public GameData gameData;
 
+        [Header("Planet")]
+        public SpriteRenderer gestureSpriteRenderer;
+        [Space]
+        public Sprite gestureHappy;
+        public Sprite gestureNormal;
+        public Sprite gestureSad;
+        public Sprite gestureWorried;
+        public Sprite gestureSick;
+        public Sprite gestureDead;
+
         [Header("Stars")]
         public ParticleSystem starsParticles;
 
@@ -60,11 +70,13 @@ namespace EcoMundi.Managers
 
 
             GameManager.OnFakeUpdate += OnUpdate;
+            GameData.OnHealthModified += UpdatePlanetFaceHandle;
         }
 
         private void OnDestroy()
         {
             GameManager.OnFakeUpdate -= OnUpdate;
+            GameData.OnHealthModified -= UpdatePlanetFaceHandle;
         }
 
         private void OnUpdate()
@@ -102,6 +114,23 @@ namespace EcoMundi.Managers
 
             if (p_zoneType == E_ZoneType.City)
                 cityZoneManager.ModifyZoneTier(p_value);
+        }
+
+
+        private void UpdatePlanetFaceHandle()
+        {
+            if (gameData.currentHealth > 90)
+                gestureSpriteRenderer.sprite = gestureHappy;
+            else if(gameData.currentHealth > 70)
+                gestureSpriteRenderer.sprite = gestureNormal;
+            else if (gameData.currentHealth > 50)
+                gestureSpriteRenderer.sprite = gestureSad;
+            else if (gameData.currentHealth > 30)
+                gestureSpriteRenderer.sprite = gestureWorried;
+            else if (gameData.currentHealth > 0)
+                gestureSpriteRenderer.sprite = gestureSick;
+            else 
+                gestureSpriteRenderer.sprite = gestureDead;
         }
 
         #endregion
