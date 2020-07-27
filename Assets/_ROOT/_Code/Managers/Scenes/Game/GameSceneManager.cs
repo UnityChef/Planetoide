@@ -1,4 +1,5 @@
 ﻿using EcoMundi.Data;
+using EcoMundi.Utility;
 using MEC;
 using System;
 using System.Collections;
@@ -24,6 +25,10 @@ namespace EcoMundi.Managers
         public Sprite gestureWorried;
         public Sprite gestureSick;
         public Sprite gestureDead;
+
+        [Header("Tasks")]
+        public static List<GameTask> taskObjectList = new List<GameTask>();
+        private const int maxTaskValue = 5;
 
         [Header("Stars")]
         public ParticleSystem starsParticles;
@@ -58,8 +63,6 @@ namespace EcoMundi.Managers
                 Timing.CallDelayed(2f, () => PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi));
             }
 
-            // Pauses Stars
-            Timing.CallDelayed(1f, () => starsParticles.Pause());
 
             carbonZoneManager.InitZoneTier(5);
             cropsZoneManager.InitZoneTier(5);
@@ -71,6 +74,16 @@ namespace EcoMundi.Managers
 
             GameManager.OnFakeUpdate += OnUpdate;
             GameData.OnHealthModified += UpdatePlanetFaceHandle;
+
+            // Pauses Stars
+            Timing.CallDelayed(1f, () => starsParticles.Pause());
+
+            // Activate 5 Task
+            ActivateTimedRandomTask(5f);
+            ActivateTimedRandomTask(5f);
+            ActivateTimedRandomTask(5f);
+            ActivateTimedRandomTask(5f);
+            ActivateTimedRandomTask(5f);
         }
 
         private void OnDestroy()
@@ -119,18 +132,47 @@ namespace EcoMundi.Managers
 
         private void UpdatePlanetFaceHandle()
         {
-            if (gameData.currentHealth > 90)
+            if (gameData.currentHealth > 80)
                 gestureSpriteRenderer.sprite = gestureHappy;
-            else if(gameData.currentHealth > 70)
+            else if(gameData.currentHealth > 60)
                 gestureSpriteRenderer.sprite = gestureNormal;
-            else if (gameData.currentHealth > 50)
-                gestureSpriteRenderer.sprite = gestureSad;
-            else if (gameData.currentHealth > 30)
+            else if (gameData.currentHealth > 40)
                 gestureSpriteRenderer.sprite = gestureWorried;
+            else if (gameData.currentHealth > 20)
+                gestureSpriteRenderer.sprite = gestureSad;
             else if (gameData.currentHealth > 0)
                 gestureSpriteRenderer.sprite = gestureSick;
             else 
                 gestureSpriteRenderer.sprite = gestureDead;
+        }
+
+        public static void ActivateTimedRandomTask(float p_minTime)
+        {
+            Timing.CallDelayed(UnityEngine.Random.Range(p_minTime, p_minTime * 3f), () => ActivateRandomTask());
+        }
+
+        private static void ActivateRandomTask()
+        {
+            if(taskObjectList.Count < maxTaskValue)
+            {
+                Debug.LogError($"[GameSceneManager] Please add more GameTasks to the game, you need at least 5 to allow Task System to work :: At the moment you have {taskObjectList.Count} GameTask in your scene");
+                return;
+            }
+
+            int randomIndex;
+
+            do
+            {
+                randomIndex = UnityEngine.Random.Range(0, taskObjectList.Count);
+                if(!taskObjectList[randomIndex].canBeTapped)
+                {
+                    taskObjectList[randomIndex].ActivateGameTask();
+                    break;
+                }
+            }
+            while (true);
+
+            taskObjectList[randomIndex].ActivateGameTask();
         }
 
         #endregion

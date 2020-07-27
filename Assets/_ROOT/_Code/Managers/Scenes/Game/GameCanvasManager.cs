@@ -29,7 +29,7 @@ public class GameCanvasManager : MonoBehaviour
 
     [Header("Quizes Data")]
     public GameLocalDatabase localDatabase;
-    private int _randomQuizIndex;
+    private int _quizIndex;
 
     [Header("QuizQuestionScreen")]
     public GameObject quizQuestionScreen;
@@ -107,20 +107,19 @@ public class GameCanvasManager : MonoBehaviour
     #region [-----     SCREENS     -----]
 
     // This function is used to call a new Question from the QuizQuestionList
-    public void ShowQuizQuestion()
+    public void ShowQuizQuestion(E_QuizType p_quizType)
     {
-        _randomQuizIndex = Random.Range(0, localDatabase.quizDatabase.Count);
+        _quizIndex = localDatabase.GetRandomQuizIndex(p_quizType);
 
-        quizQuestionLabel.text = localDatabase.quizDatabase[_randomQuizIndex].question;
+        quizQuestionLabel.text = localDatabase.quizDatabase[_quizIndex].question;
 
         foreach (Button button in answerButtonList)
             button.gameObject.SetActive(false);
 
-        for (int i = 0; i < localDatabase.quizDatabase[_randomQuizIndex].answerOptions.Count; i++)
+        for (int i = 0; i < localDatabase.quizDatabase[_quizIndex].answerOptions.Count; i++)
         {
-            int index = i;
             answerButtonList[i].gameObject.SetActive(true);
-            answerButtonLabelList[i].text = localDatabase.quizDatabase[_randomQuizIndex].answerOptions[i].answer;
+            answerButtonLabelList[i].text = localDatabase.quizDatabase[_quizIndex].answerOptions[i].answer;
         }
 
         quizQuestionScreen.SetActive(true);
@@ -137,14 +136,14 @@ public class GameCanvasManager : MonoBehaviour
 
     public void ShowQuizResultScreen() 
     {
-        if(localDatabase.quizDatabase[_randomQuizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
+        if(localDatabase.quizDatabase[_quizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
         {
             gameData.ModifyMundiHealth(1);
             gameData.ModifyGamePoints(100);
             gameData.ModifyShopPoints(5);
 
-            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneOne);
-            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneTwo);
+            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
+            GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
 
             //  THIS NEEDS TO BE REFACTORED
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionFirst);
@@ -156,11 +155,11 @@ public class GameCanvasManager : MonoBehaviour
         {
             gameData.ModifyMundiHealth(-1);
 
-            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneOne);
-            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_randomQuizIndex].affectedZoneTwo);
+            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
+            GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
         }
 
-        quizResultFeedbackLabel.text = localDatabase.quizDatabase[_randomQuizIndex].answerFeedback;
+        quizResultFeedbackLabel.text = localDatabase.quizDatabase[_quizIndex].answerFeedback;
 
         quizResultScreen.SetActive(true);
     }
