@@ -63,6 +63,7 @@ MonoBehaviour:
     symbolPrefab: {fileID: 0}
   quizDatabase:
   - question: "\xBFCu\xE1nto normalmente demoras en ducharte?"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 0
     answerOptions:
@@ -75,6 +76,7 @@ MonoBehaviour:
     answerFeedback: "Tu ducha deber\xEDa limitarse a 5 minutos para un uso sostenible
       de agua y energ\xEDa."
   - question: "\xBFQu\xE9 medio de transporte quieres usar para ir al colegio?"
+    quizType: 4
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -87,6 +89,7 @@ MonoBehaviour:
     answerFeedback: "Caminar o andar en bicicleta son las mejores opciones, el uso
       de veh\xEDculo privado emite mucho CO2 y da\xF1a los bosque."
   - question: "\xBFQu\xE9 haces con tu cargador cuando terminas de cargar tu celular?"
+    quizType: 0
     affectedZoneOne: 2
     affectedZoneTwo: 5
     answerOptions:
@@ -97,6 +100,7 @@ MonoBehaviour:
     answerFeedback: "Un cargador conectado consume energ\xEDa"
   - question: "La camiseta bonita que ya no te queda (porque creciste). Qu\xE9 podr\xEDas
       hacer con ella?"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 2
     answerOptions:
@@ -110,6 +114,7 @@ MonoBehaviour:
       invernadero. Se recomienda  reciclar reutilizar la ropa que est\xE9 en buen
       estado"
   - question: "La tele est\xE1 prendida en casa cuando:"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -122,6 +127,7 @@ MonoBehaviour:
     answerFeedback: "Si no usas un dispositivo que consume energ\xEDa, es importante
       apagarlo."
   - question: "\xBFCu\xE1ndo haces tareas escolares?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -133,6 +139,7 @@ MonoBehaviour:
       isCorrect: 0
     answerFeedback: "Haz tus tareas en la luz del sol para evitar usar luz el\xE9ctrico"
   - question: 'Cuando tienes ganas de tomar agua:'
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 0
     answerOptions:
@@ -144,6 +151,7 @@ MonoBehaviour:
       y contaminaci\xF3n despu\xE9s de su uso y mayores emisiones de carbono para
       su producci\xF3n"
   - question: Te gusta comprar cosas nuevas o usadas?
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -154,6 +162,7 @@ MonoBehaviour:
     answerFeedback: "Cada producto nuevo tiene una cadena de producci\xF3n que genera
       contaminaci\xF3n y basura"
   - question: "Si tienes calor adentro \xBFQu\xE9 haces?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -166,6 +175,7 @@ MonoBehaviour:
     answerFeedback: "User aire acondicionado aumenta los gases invernadero en la
       atm\xF3sfera y consume electricidad en momentos que no ser\xEDa necesario"
   - question: "Que haces con los desechos org\xE1nicos?"
+    quizType: 0
     affectedZoneOne: 6
     affectedZoneTwo: 0
     answerOptions:
@@ -175,6 +185,7 @@ MonoBehaviour:
       isCorrect: 0
     answerFeedback: "50%+ de residuos son org\xE1nicos, se lo puede evitar con compostaje"
   - question: Que tipo de cuenta bancaria tienes tu o tu familia?
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 0
     answerOptions:
@@ -186,6 +197,7 @@ MonoBehaviour:
       isCorrect: 1
     answerFeedback: "Cuentas verdes prometen invertir en la econom\xEDa verde"
   - question: "\xBFQu\xE9 haces cuando ves basura por la calle?"
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 6
     answerOptions:
@@ -199,6 +211,7 @@ MonoBehaviour:
       fuentes de agua y el alcantarillado de tu ciudad '
   - question: "\"Productos locales o importados?\n\n(p.ej. Manzana de Chile o Pi\xF1a
       de Ecuador?)\""
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -209,6 +222,7 @@ MonoBehaviour:
     answerFeedback: "\"Emisiones por largas v\xEDas de suministro.\nProducci\xF3n
       local aprovecha condiciones beneficiosos (agricultura)\""
   - question: "Cuando preparas una exposici\xF3n en tu colegio"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 0
     answerOptions:
@@ -220,6 +234,7 @@ MonoBehaviour:
       basados en petroleo, por lo cual aporta a la reducci\xF3n de deforestaci\xF3n"
   - question: "S\xED tu conductor (madre, padre, chofer del bus escolar etc.) se
       acerca a un cruce peatonal..."
+    quizType: 0
     affectedZoneOne: 6
     affectedZoneTwo: 0
     answerOptions:
@@ -231,6 +246,7 @@ MonoBehaviour:
       isCorrect: 0
     answerFeedback: "Una ciudad amigable para peatones es m\xE1s sostenible"
   - question: "Para entregar un trabajo impreso, cu\xE1ntos lados del papel utilizas?"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 0
     answerOptions:
@@ -245,6 +261,7 @@ MonoBehaviour:
       de transporte"
   - question: "\xBFConsumes agua envasada en botellas de pl\xE1stico o llevas tu
       tomatodo?"
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 0
     answerOptions:
@@ -258,6 +275,7 @@ MonoBehaviour:
       entre 100-700 a\xF1os en degradarse y la mayor\xEDa termina en r\xEDos, playas
       y oc\xE9anos"
   - question: "Apagas la luz, cada vez que sales de una habitaci\xF3n que queda deshabitada?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 6
     answerOptions:
@@ -271,6 +289,7 @@ MonoBehaviour:
       procesos que influyen en el cambio clim\xE1tico acelerado. El consumo eficiente
       de este recurso, aporta al cuidado del ambiente."
   - question: "Al usar ambos lados del papel, lo botas al tacho com\xFAn o lo reciclas"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 0
     answerOptions:
@@ -285,6 +304,7 @@ MonoBehaviour:
       de transporte. Promueve el reciclaje en tu hogar y colegio"
   - question: "Cuando vas a tu tienda de barrio o al mercado, pides una bolsa pl\xE1stica
       o llevas tu propia bolsa de tela o mochila para guardar lo que compras?"
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 6
     answerOptions:
@@ -300,6 +320,7 @@ MonoBehaviour:
   - question: "Cuando visitas alg\xFAn lugar de esparcimiento como el parque, la
       playa, r\xEDos, monta\xF1as, entre otros; tienes la iniciativa de recoger tus
       desperdicios y depositarlos en los tachos diferenciados?"
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 3
     answerOptions:
@@ -314,6 +335,7 @@ MonoBehaviour:
       en micropl\xE1sticos suficientemente peque\xF1os para filtrarse en nuestra
       comida"
   - question: En tu hogar o escuela utilizan bombillas de luz de bajo consumo?
+    quizType: 0
     affectedZoneOne: 6
     affectedZoneTwo: 0
     answerOptions:
@@ -328,6 +350,7 @@ MonoBehaviour:
       l\xE1mparas o focos. \u2022 Recomienda el uso de focos ahorradores en tu hogar"
   - question: "Cuando vas al supermercado, compras productos que se encuentran empaquetados
       con pl\xE1stico o prefieres los que est\xE1n en vidrio/papel o granel?"
+    quizType: 0
     affectedZoneOne: 5
     affectedZoneTwo: 6
     answerOptions:
@@ -340,6 +363,7 @@ MonoBehaviour:
       a millones de animales marinos."
   - question: "Han optado por opciones en el modelo energ\xE9tico en tu casa/escuela
       basado en energ\xEDas renovables?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -351,6 +375,7 @@ MonoBehaviour:
       aire contaminado
   - question: Con tu familia o comunidad educativa eligen productos alimentarios
       locales?
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 0
     answerOptions:
@@ -362,6 +387,7 @@ MonoBehaviour:
       de gases de efecto invernadero. Elige productos de cultivos sostenibles que
       no han destruido bosques"
   - question: "\xBFCu\xE1l es el momento adecuado para regar las plantas?"
+    quizType: 0
     affectedZoneOne: 2
     affectedZoneTwo: 4
     answerOptions:
@@ -374,6 +400,7 @@ MonoBehaviour:
     answerFeedback: "Regar tus plantas muy temprano o despu\xE9s de la ca\xEDda del
       sol evita la p\xE9rdida de agua por evaporaci\xF3n"
   - question: "\xBFC\xF3mo gestionas tus desechos y residuos s\xF3lidos?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 3
     answerOptions:
@@ -387,6 +414,7 @@ MonoBehaviour:
       a material potencialmente reciclable
   - question: "\xBFQu\xE9 podr\xEDas hacer para consumir menos energ\xEDa el\xE9ctrica
       en tu aula o dormitorio?"
+    quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 3
     answerOptions:
@@ -403,6 +431,7 @@ MonoBehaviour:
       di\xF3xido de carbono\na la atm\xF3sfera\""
   - question: "Cuando necesitas \xFAtiles escolares, \xBFQu\xE9 tipo de productos
       elijes?"
+    quizType: 0
     affectedZoneOne: 3
     affectedZoneTwo: 2
     answerOptions:

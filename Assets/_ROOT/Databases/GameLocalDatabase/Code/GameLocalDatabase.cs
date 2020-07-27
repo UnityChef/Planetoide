@@ -13,6 +13,18 @@ namespace EcoMundi.Data
 
         [Header("QUIZZES")]
         public List<QuizData> quizDatabase;
+        private int _randomIndex;
+
+        public int GetRandomQuizIndex(E_QuizType p_quizType)
+        {
+            do
+            {
+                _randomIndex = UnityEngine.Random.Range(0, quizDatabase.Count);
+            }
+            while (quizDatabase[_randomIndex].quizType != p_quizType);
+
+            return _randomIndex;
+        }
     }
 
     #region [-----     PROVINCES     -----]
@@ -66,6 +78,8 @@ namespace EcoMundi.Data
     {
         [TextArea(2,4)]
         public string question;
+        [Space]
+        public E_QuizType quizType;
         [Space]
         public E_ZoneType affectedZoneOne;
         public E_ZoneType affectedZoneTwo;
