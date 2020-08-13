@@ -47,6 +47,8 @@ public class ZoneManager : MonoBehaviour
 
         if(zoneTierValue != 0)
             tierGroupsList[zoneTierValue - 1].SetActive(true);
+        else if (zoneTierValue == 0)
+            tierGroupsList[0].SetActive(true); // Always show the tier 1 when zoneTier Reaches 0
     }
 
     #endregion

@@ -109,7 +109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9138661995997864998}
-  - {fileID: 1354082892558520309}
+  - {fileID: 6857754535880411550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,9 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quizType: 0
-  taskMarkerObject: {fileID: 7861078150371415926}
+  taskMarkerObject: {fileID: 2375966220393550109}
   canBeTapped: 0
---- !u!1001 &2413092761646808586
+--- !u!1001 &7826147058948880481
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -156,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0.397
       objectReference: {fileID: 0}
     - target: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
@@ -206,17 +206,17 @@ PrefabInstance:
     - target: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5504858867978152316, guid: 09d0189305e9aaa42afd9c15fc27613d,
         type: 3}
@@ -230,15 +230,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d0189305e9aaa42afd9c15fc27613d, type: 3}
---- !u!1 &7861078150371415926 stripped
+--- !u!1 &2375966220393550109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5504858867978152316, guid: 09d0189305e9aaa42afd9c15fc27613d,
     type: 3}
-  m_PrefabInstance: {fileID: 2413092761646808586}
+  m_PrefabInstance: {fileID: 7826147058948880481}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1354082892558520309 stripped
+--- !u!4 &6857754535880411550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3726636485334823423, guid: 09d0189305e9aaa42afd9c15fc27613d,
     type: 3}
-  m_PrefabInstance: {fileID: 2413092761646808586}
+  m_PrefabInstance: {fileID: 7826147058948880481}
   m_PrefabAsset: {fileID: 0}

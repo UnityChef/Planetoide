@@ -21,11 +21,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string p_name)
+    public void PlaySound(E_SoundEffects p_sfx)
     {
         foreach (Sound sound in sfxSounds)
         {
-            if (sound.clipName.Equals(p_name))
+            if (sound.clipName.Equals($"{p_sfx}"))
             {
                 sound.source.Play();
                 break;

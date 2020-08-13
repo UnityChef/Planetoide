@@ -53,7 +53,7 @@ namespace EcoMundi.Managers
         public void ContinueButton_WelcomeScreen()
         {
             ShowScreen(E_ScreenType.MundiData);
-            AudioManager.Instance.PlaySound("Accept");
+            AudioManager.Instance.PlaySound(E_SoundEffects.Accept);
         }
 
         public void ValidateMundiData()

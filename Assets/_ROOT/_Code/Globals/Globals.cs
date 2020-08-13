@@ -20,3 +20,13 @@ public enum E_ZoneType
     Fishery,
     City
 }
+
+public enum E_SoundEffects
+{
+    Accept,
+    Cancel,
+    TapForward,
+    TapBack,
+    AnswerCorrect,
+    AnswerWrong
+}

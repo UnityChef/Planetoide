@@ -155,6 +155,8 @@ public class GameCanvasManager : MonoBehaviour
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionBronze);
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionSilver);
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionGold);
+
+            AudioManager.Instance.PlaySound(E_SoundEffects.AnswerCorrect);
         }
         else
         {
@@ -162,6 +164,8 @@ public class GameCanvasManager : MonoBehaviour
 
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
+
+            AudioManager.Instance.PlaySound(E_SoundEffects.AnswerWrong);
         }
 
         quizResultFeedbackLabel.text = localDatabase.quizDatabase[_quizIndex].answerFeedback;

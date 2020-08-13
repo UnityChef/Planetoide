@@ -65,7 +65,7 @@ MonoBehaviour:
   - question: "\xBFCu\xE1nto normalmente demoras en ducharte?"
     quizType: 0
     affectedZoneOne: 3
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: 5 minutos
       isCorrect: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   - question: "\xBFQu\xE9 medio de transporte quieres usar para ir al colegio?"
     quizType: 1
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Caminar o bicicleta
       isCorrect: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
   - question: "La tele est\xE1 prendida en casa cuando:"
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: "Estoy viendo alg\xFAn programa que me interesa"
       isCorrect: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   - question: "\xBFCu\xE1ndo haces tareas escolares?"
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: "Despu\xE9s de las clases en la tarde"
       isCorrect: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   - question: 'Cuando tienes ganas de tomar agua:'
     quizType: 3
     affectedZoneOne: 5
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Relleno una botella reutilizable que llevo conmigo a todas partes
       isCorrect: 1
@@ -153,7 +153,7 @@ MonoBehaviour:
   - question: Te gusta comprar cosas nuevas o usadas?
     quizType: 2
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Usadas
       isCorrect: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
   - question: "Si tienes calor adentro \xBFQu\xE9 haces?"
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: '"Abrir la ventana"'
       isCorrect: 1
@@ -187,7 +187,7 @@ MonoBehaviour:
   - question: Que tipo de cuenta bancaria tienes tu o tu familia?
     quizType: 0
     affectedZoneOne: 3
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Ahorros
       isCorrect: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
       de Ecuador?)\""
     quizType: 2
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Preferir productos locales/nacionales
       isCorrect: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   - question: "Cuando preparas una exposici\xF3n en tu colegio"
     quizType: 1
     affectedZoneOne: 3
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Uso medios digitales
       isCorrect: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   - question: "Para entregar un trabajo impreso, cu\xE1ntos lados del papel utilizas?"
     quizType: 1
     affectedZoneOne: 3
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Dos caras
       isCorrect: 1
@@ -263,7 +263,7 @@ MonoBehaviour:
       tomatodo?"
     quizType: 3
     affectedZoneOne: 5
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Tomatodo
       isCorrect: 1
@@ -291,7 +291,7 @@ MonoBehaviour:
   - question: "Al usar ambos lados del papel, lo botas al tacho com\xFAn o lo reciclas"
     quizType: 1
     affectedZoneOne: 3
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: reciclaje
       isCorrect: 1
@@ -361,11 +361,11 @@ MonoBehaviour:
     answerFeedback: "Los pl\xE1sticos de un solo uso causa altos niveles de contaminaci\xF3n.
       En el mar se vierten m\xE1s de 8 toneladas de residuos pl\xE1sticos que afectan
       a millones de animales marinos."
-  - question: "Han optado por opciones en el modelo energ\xE9tico en tu casa/escuela
-      basado en energ\xEDas renovables?"
-    quizType: 0
+  - question: "Han optado por opciones en el modelo energ\xE9tico en tu escuela basado
+      en energ\xEDas renovables?"
+    quizType: 1
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: "ahorro en la energ\xEDa/ energ\xEDa renovable (energ\xEDa solar)"
       isCorrect: 1
@@ -377,7 +377,7 @@ MonoBehaviour:
       locales?
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 0
+    affectedZoneTwo: 6
     answerOptions:
     - answer: Productos locales
       isCorrect: 1

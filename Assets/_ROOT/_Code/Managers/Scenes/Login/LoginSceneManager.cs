@@ -77,6 +77,7 @@ namespace EcoMundi.Managers
 
         public void GoToGameScene()
         {
+            AudioManager.Instance.PlaySound(E_SoundEffects.Accept);
             SceneManager.LoadScene("GameScene");
         }
     }
