@@ -125,6 +125,11 @@ public class GameCanvasManager : MonoBehaviour
         quizQuestionScreen.SetActive(true);
     }
 
+    public void CloseQuizQuestionScreen()
+    {
+        quizQuestionScreen.SetActive(false);
+    }
+
     // Called from the buttons at inspector
     public void ButtonAnswerSetAnswerIndex(int p_index)
     {
