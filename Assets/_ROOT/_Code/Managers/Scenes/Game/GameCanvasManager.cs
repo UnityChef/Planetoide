@@ -43,6 +43,10 @@ public class GameCanvasManager : MonoBehaviour
     public GameObject quizResultScreen;
     [Space]
     public TMP_Text quizResultFeedbackLabel;
+    public Image quizResultImage;
+    [Header("Assets")]
+    public Sprite quizCorrectSprite;
+    public Sprite quizWrongSprite;
 
     [Header("Health Bar")]
     public RectTransform healthBarRectTransform;
@@ -156,7 +160,9 @@ public class GameCanvasManager : MonoBehaviour
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionSilver);
             PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionGold);
 
+
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerCorrect);
+            quizResultImage.sprite = quizCorrectSprite;
         }
         else
         {
@@ -166,6 +172,7 @@ public class GameCanvasManager : MonoBehaviour
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
 
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerWrong);
+            quizResultImage.sprite = quizWrongSprite;
         }
 
         quizResultFeedbackLabel.text = localDatabase.quizDatabase[_quizIndex].answerFeedback;

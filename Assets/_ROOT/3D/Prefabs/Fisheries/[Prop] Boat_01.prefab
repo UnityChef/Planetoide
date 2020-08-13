@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 73328214112546837}
   m_Layer: 0
-  m_Name: '[Group] Boat_01'
+  m_Name: '[Prop] Boat_01'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73328214112546836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4550787885032770842}
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 767453336408965121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 627847652841050892}
   - {fileID: 6271582694055187162}
