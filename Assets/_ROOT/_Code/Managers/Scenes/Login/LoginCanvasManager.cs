@@ -5,6 +5,7 @@ using MEC;
 using EcoMundi.Data;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 namespace EcoMundi.Managers
 {
@@ -12,6 +13,7 @@ namespace EcoMundi.Managers
     {
         [Header("Game Data")]
         public GameData gameData;
+        public GameLocalDatabase gameLocalData;
 
         [Header("Sign-in")]
         public GameObject signInButtonObject;
@@ -31,6 +33,10 @@ namespace EcoMundi.Managers
         [Header("Play Screen")]
         public GameObject playScreenObject;
 
+        [Header("Monument")]
+        public Transform monumentParentTransform;
+        public TMP_Text monumentNameLabel;
+        private GameObject _cachedMonumentInstantiated;
 
         private IEnumerator Start()
         {
@@ -43,6 +49,11 @@ namespace EcoMundi.Managers
                 playButtonObject.SetActive(true);
             else
                 signInButtonObject.SetActive(true);
+
+            // Dropdown
+            provinceDropdown.onValueChanged.AddListener(delegate {
+                DropdownValueChanged(provinceDropdown);
+            });
 
             yield break;
         }
@@ -92,6 +103,23 @@ namespace EcoMundi.Managers
         public void NormalDifficultyButton()
         {
             gameData.SetDifficultyType(E_DifficultyType.Normal);
+        }
+
+        public void DropdownValueChanged(TMP_Dropdown change)
+        {
+            Destroy(_cachedMonumentInstantiated);
+
+            if (provinceDropdown.value != 0)
+            {
+                if (gameLocalData.provinceDatabase[provinceDropdown.value - 1].symbolPrefab != null)
+                    _cachedMonumentInstantiated = Instantiate(gameLocalData.provinceDatabase[provinceDropdown.value - 1].symbolPrefab, monumentParentTransform);
+
+                monumentNameLabel.text = gameLocalData.provinceDatabase[provinceDropdown.value - 1].monumentName;
+            }
+            else
+            {
+                monumentNameLabel.text = "Selecciona tu provincia";
+            }
         }
 
         #endregion

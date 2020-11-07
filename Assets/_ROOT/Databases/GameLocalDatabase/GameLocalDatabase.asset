@@ -14,53 +14,100 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   provinceDatabase:
   - province: 1
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 1983827406843666759, guid: ab133577fd5a0244cbaeb6c11dcbbf95,
+      type: 3}
+    monumentName: "Tortuga gigante de Gal\xE1pagos"
   - province: 2
     symbolPrefab: {fileID: 0}
+    monumentName: 
   - province: 3
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 6374015983157009190, guid: 093a3ab2e258dfe418431c251f14d93c,
+      type: 3}
+    monumentName: Arrecife Drake
   - province: 4
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 5758395020917417319, guid: d0340e8cf1cae674ab4af1cec857751f,
+      type: 3}
+    monumentName: "Monta\xF1ita"
   - province: 5
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 5235694592293566678, guid: 8c326da18c3a08f438d4b46dfd4449a5,
+      type: 3}
+    monumentName: Casa de Olmedo
   - province: 6
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 2210982070676402943, guid: 693e3988cdf9fe24d996fc6495ab3a15,
+      type: 3}
+    monumentName: Hemiciclo de la Rotonda
   - province: 7
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 8588686734328263901, guid: 5eadcc41d6084ed40adb0010f97f6d65,
+      type: 3}
+    monumentName: Bosque Petrificado
   - province: 8
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 27656820195777720, guid: 0814bfe2a50c3224d994e9ad508b2bcb,
+      type: 3}
+    monumentName: Monumento Tsachila
   - province: 9
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 7506325127060525322, guid: da86b2849bcc1b94d99bc0d89c431696,
+      type: 3}
+    monumentName: Monumento Mitad del mundo
   - province: 10
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 5462124522858719199, guid: 0720bf57ef98410478bd10a552b7c545,
+      type: 3}
+    monumentName: "Volc\xE1n Tungurahua"
   - province: 11
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 3819655194049781047, guid: bfe9db3efd3085845992476df80a4b5f,
+      type: 3}
+    monumentName: "Volc\xE1n Cotopaxi"
   - province: 12
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 8528496070300694252, guid: b20229f957da9854ca21443c1edabeb5,
+      type: 3}
+    monumentName: "Cementerio de Tulc\xE1n"
   - province: 13
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 7056713632950085103, guid: 676f0b00bbf6932449adede4b0e43385,
+      type: 3}
+    monumentName: Tren del Ecuador
   - province: 14
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 9061384629612658199, guid: bacfe7a40c1759a4ea43e0a432453cd1,
+      type: 3}
+    monumentName: "Volc\xE1n Imbabura"
   - province: 15
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 2969944923742729895, guid: 2734d3787d7fad344bbf539330acd3b1,
+      type: 3}
+    monumentName: Puerta de la ciudad
   - province: 16
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 4066424175811037454, guid: f54546c985419be44a2f7c71964471c1,
+      type: 3}
+    monumentName: Catedral de Guaranda
   - province: 17
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 2813824947746648872, guid: 86da1916953b7894090f094026cf7b39,
+      type: 3}
+    monumentName: "El Pail\xF3n del Diablo"
   - province: 18
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 1952959994287924704, guid: e6f0b13896387e14b95c5cf06b95b22b,
+      type: 3}
+    monumentName: "Complejo Arqueol\xF3gico Ingapirca"
   - province: 19
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 6773193744580498338, guid: 711d9d9b1c31c60468571c47e2764a1c,
+      type: 3}
+    monumentName: "Volc\xE1n Reventador"
   - province: 20
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 3625256261372295967, guid: 250ead464f18f784cb02008baf98182d,
+      type: 3}
+    monumentName: Catderal de Macas
   - province: 21
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 193757013668292620, guid: 9692de11a6338654d82f2ab2546cf1f0,
+      type: 3}
+    monumentName: "Volc\xE1n Antisana"
   - province: 22
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 1480765025531154493, guid: da1baa95efe088b46b30afe4f4a3c25e,
+      type: 3}
+    monumentName: Reloj Gigante de Zamora
   - province: 23
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 7297263085590003435, guid: 370fafdbf518a1945ae45a4946eded50,
+      type: 3}
+    monumentName: "Parque Nacional Yasun\xED"
   - province: 24
-    symbolPrefab: {fileID: 0}
+    symbolPrefab: {fileID: 4633365897237047555, guid: 52fe3af0c97e8e94a9a80dd792847a3a,
+      type: 3}
+    monumentName: "Jard\xEDn Bot\xE1nico"
   quizDatabase:
   - question: "\xBFCu\xE1nto normalmente demoras en ducharte?"
     quizType: 0

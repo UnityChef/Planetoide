@@ -52,6 +52,9 @@ public class GameCanvasManager : MonoBehaviour
     public RectTransform healthBarRectTransform;
     public TMP_Text healthBarValueLabel;
 
+    [Header("EcoFootprintInfoScreen")]
+    public GameObject ecoFootprintInfoScreen;
+
     // QUIZZES
     private int _cachedAnswerIndex;
 
@@ -134,6 +137,11 @@ public class GameCanvasManager : MonoBehaviour
         quizQuestionScreen.SetActive(false);
     }
 
+    public void CloseEcoFootprintInfoScreen()
+    {
+        ecoFootprintInfoScreen.SetActive(false);
+    }
+
     // Called from the buttons at inspector
     public void ButtonAnswerSetAnswerIndex(int p_index)
     {
@@ -184,6 +192,11 @@ public class GameCanvasManager : MonoBehaviour
     public void CloseQuizResultScreen()
     {
         quizResultScreen.SetActive(false);
+    }
+
+    public void OpenEcoFootprintInfo()
+    {
+        ecoFootprintInfoScreen.SetActive(true);
     }
 
     #endregion

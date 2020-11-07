@@ -15,6 +15,7 @@ namespace EcoMundi.Managers
 
         [Header("GameData")]
         public GameData gameData;
+        public GameLocalDatabase gameLocalData;
 
         [Header("Planet")]
         public SpriteRenderer gestureSpriteRenderer;
@@ -45,6 +46,12 @@ namespace EcoMundi.Managers
         public ZoneManager farmingZoneManager;
         public ZoneManager fisheryZoneManager;
         public ZoneManager cityZoneManager;
+
+        [Header("Monument")]
+        public Transform monumentParentTransform;
+
+        // Estras
+        private const string MORE_INFO_URL = "http://google.com/";
 
         private void Awake()
         {
@@ -84,6 +91,16 @@ namespace EcoMundi.Managers
             ActivateTimedRandomTask(5f);
             ActivateTimedRandomTask(5f);
             ActivateTimedRandomTask(5f);
+
+            // Monument
+            foreach (ProvincePropsData provinceData in gameLocalData.provinceDatabase)
+            {
+                if (gameData.province == provinceData.province)
+                {
+                    Instantiate(provinceData.symbolPrefab, monumentParentTransform);
+                    break;
+                }
+            }
         }
 
         private void OnDestroy()
@@ -184,6 +201,13 @@ namespace EcoMundi.Managers
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
+        }
+
+        public void OpenWebURL()
+        {
+#if UNITY_ANDROID
+            Application.OpenURL(MORE_INFO_URL);
+#endif
         }
     }
 }

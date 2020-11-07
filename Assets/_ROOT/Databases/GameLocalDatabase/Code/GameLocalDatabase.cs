@@ -34,6 +34,7 @@ namespace EcoMundi.Data
     {
         public E_Province province;
         public GameObject symbolPrefab;
+        public string monumentName;
     }
 
     public enum E_Province
