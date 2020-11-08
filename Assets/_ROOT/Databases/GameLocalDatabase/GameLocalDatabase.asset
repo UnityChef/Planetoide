@@ -493,3 +493,22 @@ MonoBehaviour:
     answerFeedback: El uso de productos amigables con el ambiente, podemos proteger
       los recursos del planeta y garantizar la existencia de recursos para generaciones
       futuras.
+  ecoFootprintList:
+  - zoneType: 1
+    zoneName: Carbono
+    zoneSprite: {fileID: 21300000, guid: 2dde375ec53c5364783c4fa818afa45e, type: 3}
+  - zoneType: 2
+    zoneName: Cultivos
+    zoneSprite: {fileID: 21300000, guid: 1bc18af286409a146a67fce828f0673c, type: 3}
+  - zoneType: 3
+    zoneName: Forestal
+    zoneSprite: {fileID: 21300000, guid: b4224f1fdade6a448abda10f19693887, type: 3}
+  - zoneType: 4
+    zoneName: Pastoreo
+    zoneSprite: {fileID: 21300000, guid: 498cc898f48ce1f46b2068f8efe3cd3c, type: 3}
+  - zoneType: 5
+    zoneName: Pesca
+    zoneSprite: {fileID: 21300000, guid: 90b76e9360656794d9159720d62cf117, type: 3}
+  - zoneType: 6
+    zoneName: Urbanismo
+    zoneSprite: {fileID: 21300000, guid: e9919e2744d5b224ca3893e462bedfb5, type: 3}

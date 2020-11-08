@@ -43,10 +43,27 @@ public class GameCanvasManager : MonoBehaviour
     public GameObject quizResultScreen;
     [Space]
     public TMP_Text quizResultFeedbackLabel;
-    public Image quizResultImage;
+    public Image quizResultImage; //lgsus
+    // Ecofootprint 1 related
+    public Image ecofootprint1Image;
+    public TMP_Text ecofootprint1NameLabel;
+    public Image ecofootprint1ValueBackgroundImage;
+    public TMP_Text ecofootprint1Valuelabel;
+    // Ecofootprint 2 related
+    public Image ecofootprint2Image;
+    public TMP_Text ecofootprint2NameLabel;
+    public Image ecofootprint2ValueBackgroundImage;
+    public TMP_Text ecofootprint2Valuelabel;
+    // Ecofootprint 2 related
+    public TMP_Text healthValueLabel;
+    public Image healthValuebackgroundImage;
+    public GameObject healthPlanetCorrectFaceObject;
+    public GameObject healthPlanetIncorrectFaceObject;
     [Header("Assets")]
     public Sprite quizCorrectSprite;
     public Sprite quizWrongSprite;
+    public Color32 correctColor;
+    public Color32 incorrectColor;
 
     [Header("Health Bar")]
     public RectTransform healthBarRectTransform;
@@ -54,6 +71,14 @@ public class GameCanvasManager : MonoBehaviour
 
     [Header("EcoFootprintInfoScreen")]
     public GameObject ecoFootprintInfoScreen;
+    public GameObject ecoFootprintInfoDialogScreen;
+    // EcoFootprints dialogs
+    public GameObject ecoFootprintDialogGroupCarbono;
+    public GameObject ecoFootprintDialogGroupPastoreo;
+    public GameObject ecoFootprintDialogGroupCultivos;
+    public GameObject ecoFootprintDialogGroupPesca;
+    public GameObject ecoFootprintDialogGroupForestal;
+    public GameObject ecoFootprintDialogGroupurbanismo;
 
     // QUIZZES
     private int _cachedAnswerIndex;
@@ -151,9 +176,25 @@ public class GameCanvasManager : MonoBehaviour
         ShowQuizResultScreen();
     }
 
+    private EcoFootprint _cachedEcofootprint;
+
     public void ShowQuizResultScreen() 
     {
-        if(localDatabase.quizDatabase[_quizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
+        healthPlanetCorrectFaceObject.SetActive(false);
+        healthPlanetIncorrectFaceObject.SetActive(false);
+
+        // Affected zone 1
+        _cachedEcofootprint = localDatabase.GetZoneTypeInformation(localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
+        ecofootprint1Image.sprite = _cachedEcofootprint.zoneSprite;
+        ecofootprint1NameLabel.text = _cachedEcofootprint.zoneName;
+
+        // Affected zone 2
+        _cachedEcofootprint = localDatabase.GetZoneTypeInformation(localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
+        ecofootprint2Image.sprite = _cachedEcofootprint.zoneSprite;
+        ecofootprint2NameLabel.text = _cachedEcofootprint.zoneName;
+
+
+        if (localDatabase.quizDatabase[_quizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
         {
             gameData.ModifyMundiHealth(1);
             gameData.ModifyGamePoints(100);
@@ -171,6 +212,19 @@ public class GameCanvasManager : MonoBehaviour
 
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerCorrect);
             quizResultImage.sprite = quizCorrectSprite;
+
+            // Affected zone 1
+            ecofootprint1ValueBackgroundImage.color = correctColor;
+            ecofootprint1Valuelabel.text = "+1";
+
+            // Affected zone 2
+            ecofootprint2ValueBackgroundImage.color = correctColor;
+            ecofootprint2Valuelabel.text = "+1";
+
+            // Affected planet health
+            healthValueLabel.text = "+1";
+            healthValuebackgroundImage.color = correctColor;
+            healthPlanetCorrectFaceObject.SetActive(true);
         }
         else
         {
@@ -181,6 +235,19 @@ public class GameCanvasManager : MonoBehaviour
 
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerWrong);
             quizResultImage.sprite = quizWrongSprite;
+
+            // Affected zone 1
+            ecofootprint1ValueBackgroundImage.color = incorrectColor;
+            ecofootprint1Valuelabel.text = "-1";
+
+            // Affected zone 2
+            ecofootprint2ValueBackgroundImage.color = incorrectColor;
+            ecofootprint2Valuelabel.text = "-1";
+
+            // Affected planet health
+            healthValueLabel.text = "-1";
+            healthValuebackgroundImage.color = incorrectColor;
+            healthPlanetIncorrectFaceObject.SetActive(true);
         }
 
         quizResultFeedbackLabel.text = localDatabase.quizDatabase[_quizIndex].answerFeedback;
@@ -194,9 +261,55 @@ public class GameCanvasManager : MonoBehaviour
         quizResultScreen.SetActive(false);
     }
 
+    // Eco footprint Info related
     public void OpenEcoFootprintInfo()
     {
         ecoFootprintInfoScreen.SetActive(true);
+    }
+
+    // Eco footprint dialogs Info   
+
+    /// <summary>
+    /// Opens the dialog that shows the ecofootprint info
+    /// </summary>
+    /// <param name="p_ecofootprint">1: Carbono, 2: pastoreo, 3: cultivos, 4: pesca, 5: forestal, 6: urbanismo</param>
+    public void OpenEcoFootprintDialog(int p_ecofootprint)
+    {
+        ecoFootprintInfoDialogScreen.SetActive(true);
+
+        ecoFootprintDialogGroupCarbono.SetActive(false);
+        ecoFootprintDialogGroupPastoreo.SetActive(false);
+        ecoFootprintDialogGroupCultivos.SetActive(false);
+        ecoFootprintDialogGroupPesca.SetActive(false);
+        ecoFootprintDialogGroupForestal.SetActive(false);
+        ecoFootprintDialogGroupurbanismo.SetActive(false);
+
+        switch (p_ecofootprint)
+        {
+            case 1:
+                ecoFootprintDialogGroupCarbono.SetActive(true);
+                break;
+            case 2:
+                ecoFootprintDialogGroupPastoreo.SetActive(true);
+                break;
+            case 3:
+                ecoFootprintDialogGroupCultivos.SetActive(true);
+                break;
+            case 4:
+                ecoFootprintDialogGroupPesca.SetActive(true);
+                break;
+            case 5:
+                ecoFootprintDialogGroupForestal.SetActive(true);
+                break;
+            case 6:
+                ecoFootprintDialogGroupurbanismo.SetActive(true);
+                break;
+        }
+    }
+
+    public void CloseEcoFootprintDialog()
+    {
+        ecoFootprintInfoDialogScreen.SetActive(false);
     }
 
     #endregion

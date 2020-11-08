@@ -15,6 +15,9 @@ namespace EcoMundi.Data
         public List<QuizData> quizDatabase;
         private int _randomIndex;
 
+        [Header("ECOFOOTPRINTS")]
+        public List<EcoFootprint> ecoFootprintList;
+
         public int GetRandomQuizIndex(E_QuizType p_quizType)
         {
             do
@@ -25,6 +28,21 @@ namespace EcoMundi.Data
 
             return _randomIndex;
         }
+
+        #region [-----     METHODS     -----]
+
+        public EcoFootprint GetZoneTypeInformation(E_ZoneType p_zoneType)
+        {
+            foreach (EcoFootprint ecoFootprint in ecoFootprintList)
+            {
+                if (ecoFootprint.zoneType == p_zoneType)
+                    return ecoFootprint;
+            }
+
+            return null;
+        }
+
+        #endregion
     }
 
     #region [-----     PROVINCES     -----]
@@ -105,6 +123,18 @@ namespace EcoMundi.Data
         Mall,
         General,
         Transport
+    }
+
+    #endregion
+
+    #region [-----     ECO FOOTPRINTS     -----]
+
+    [System.Serializable]
+    public class EcoFootprint
+    {
+        public E_ZoneType zoneType;
+        public string zoneName;
+        public Sprite zoneSprite;
     }
 
     #endregion
