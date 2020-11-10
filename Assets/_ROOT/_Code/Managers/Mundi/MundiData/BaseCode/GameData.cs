@@ -61,7 +61,7 @@ namespace EcoMundi.Data
         public void SetDifficultyType(E_DifficultyType p_difficultyType)
         {
             if (p_difficultyType == E_DifficultyType.Easy)
-                difficultyModifier = 1.5f;
+                difficultyModifier = 0.5f;
             else
                 difficultyModifier = 1f;
 
@@ -82,10 +82,12 @@ namespace EcoMundi.Data
         }
 
         //  GAME POINTS
-        public void ModifyGamePoints(int p_value)
+        public int ModifyGamePoints(int p_value)
         {
             gamePoints += Mathf.CeilToInt(p_value * difficultyModifier);
             OnGamePointsModified?.Invoke();
+
+            return Mathf.CeilToInt(p_value * difficultyModifier);
         }
 
         public string GetGamePoints()

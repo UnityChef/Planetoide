@@ -91,7 +91,7 @@ MonoBehaviour:
   - province: 20
     symbolPrefab: {fileID: 3625256261372295967, guid: 250ead464f18f784cb02008baf98182d,
       type: 3}
-    monumentName: Catderal de Macas
+    monumentName: Catedral de Macas
   - province: 21
     symbolPrefab: {fileID: 193757013668292620, guid: 9692de11a6338654d82f2ab2546cf1f0,
       type: 3}
