@@ -6,7 +6,6 @@ using System;
 namespace EcoMundi.Data
 {
     [CreateAssetMenu(fileName ="MundiData", menuName = "EcoMundi/Data/MundiData", order = 50)]
-    [Serializable]
     public class GameData : ScriptableObject
     {
         [Header("Game Configs")]
@@ -25,7 +24,7 @@ namespace EcoMundi.Data
         public float difficultyModifier;
         [Space]
         public int MAX_HEALTH = 100;
-        public int currentHealth = 0;
+        public int currentHealth;
         public bool IsAlive { get { return currentHealth > 0; } }
         [Space]
         public DateTime birthDate;// = new DateTime();
@@ -48,26 +47,10 @@ namespace EcoMundi.Data
         public static event VoidDelegate OnShopPointsModified;
         public static event VoidDelegate OnHealthModified;
 
-        // Resets all fields
-        private void OnEnable()
-        {
-            //_difficultyType = E_DifficultyType.None;
-            //province = E_Province.None;
-
-            //mundiName = string.Empty;
-            //gamePoints = 0;
-            //shopPoints = 0;
-
-            //currentHealth = 100;
-        }
-
         #region [-----     GAME BEHAVIOURS     -----]
 
         public void SetNewGameData(string p_mundiName, E_Province p_provinceType)
         {
-            // PlayerPrefsDataRelated
-            PlayerPrefs.SetString("FirstTimePlay", "true");
-
             mundiName = p_mundiName;
             province = p_provinceType;
             currentHealth = 0;
@@ -137,9 +120,6 @@ namespace EcoMundi.Data
                 currentHealth = MAX_HEALTH;
             else if (currentHealth < 0)
                 currentHealth = 0;
-
-            if (currentHealth == 0)
-                Debug.Log("Mundi Died");
 
             OnHealthModified?.Invoke();
         }

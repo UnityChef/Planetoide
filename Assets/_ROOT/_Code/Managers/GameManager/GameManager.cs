@@ -36,7 +36,6 @@ namespace EcoMundi.Managers
                 OnFakeUpdate.Invoke();
         }
 
-
         [ContextMenu("EraseCachedData")]
         private void ErasePlayerPrefs()
         {

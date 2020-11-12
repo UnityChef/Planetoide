@@ -70,6 +70,12 @@ namespace EcoMundi.Managers
             //    Timing.CallDelayed(2f, () => PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi));
             //}
 
+            if (!GameManager.HasFirstTimePlayed)
+            {
+                GameCanvasManager.Instance.OpenTutorialScreen();
+                PlayerPrefs.SetString("FirstTimePlay", "1");
+            }
+
             carbonZoneManager.InitZoneTier(gameData.ecofootprintCarbonValue);
             cropsZoneManager.InitZoneTier(gameData.ecofootprintCropsValue);
             forestZoneManager.InitZoneTier(gameData.ecofootprintForestValue);
@@ -149,13 +155,13 @@ namespace EcoMundi.Managers
 
         private void UpdatePlanetFaceHandle()
         {
-            if (gameData.currentHealth > 80)
+            if (gameData.currentHealth == 100)
                 gestureSpriteRenderer.sprite = gestureHappy;
-            else if(gameData.currentHealth > 60)
+            else if(gameData.currentHealth > 80)
                 gestureSpriteRenderer.sprite = gestureNormal;
-            else if (gameData.currentHealth > 40)
+            else if (gameData.currentHealth > 60)
                 gestureSpriteRenderer.sprite = gestureWorried;
-            else if (gameData.currentHealth > 20)
+            else if (gameData.currentHealth > 30)
                 gestureSpriteRenderer.sprite = gestureSad;
             else if (gameData.currentHealth > 0)
                 gestureSpriteRenderer.sprite = gestureSick;

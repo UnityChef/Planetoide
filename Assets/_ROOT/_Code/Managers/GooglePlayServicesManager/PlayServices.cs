@@ -29,10 +29,10 @@ public class PlayServices : MonoBehaviour
 
     private void Start()
     {
-        InitializeGPGS();
+        //InitializeGPGS();
 
         // SaveData Init
-        _formatter = new BinaryFormatter();
+        //_formatter = new BinaryFormatter();
     }
 
     private void InitializeGPGS()
@@ -230,7 +230,7 @@ public class PlayServices : MonoBehaviour
     {
         using (MemoryStream stream = new MemoryStream())
         {
-            _formatter.Serialize(stream, _gameData);
+            //_formatter.Serialize(stream, _gameData);
             return stream.GetBuffer();
         }
     }
@@ -285,14 +285,14 @@ public class PlayServices : MonoBehaviour
         (SavedGameRequestStatus status, byte[] data) => {
             if (status == SavedGameRequestStatus.Success)
             {
-                try
-                {
-                    _gameData = DeserializeGameData(data);
-                }
-                catch (Exception e)
-                {
-                    Debug.Log("Saved Game Write: convert exception");
-                }
+                //try
+                //{
+                //    _gameData = DeserializeGameData(data);
+                //}
+                //catch (Exception e)
+                //{
+                //    Debug.Log("Saved Game Write: convert exception");
+                //}
 
                 WriteSavedGame(currentGame, writeCallback);
             }
@@ -326,15 +326,15 @@ public class PlayServices : MonoBehaviour
         (SavedGameRequestStatus status, byte[] data) => {
             if (status == SavedGameRequestStatus.Success)
             {
-                try
-                {
-                    _gameData = DeserializeGameData(data);
-                    Debug.Log($"Data Loaded: {data}");
-                }
-                catch (Exception e)
-                {
-                    Debug.Log("Game Data was not loaded");
-                }
+                //try
+                //{
+                //    _gameData = DeserializeGameData(data);
+                //    Debug.Log($"Data Loaded: {data}");
+                //}
+                //catch (Exception e)
+                //{
+                //    Debug.Log("Game Data was not loaded");
+                //}
             }
         };
 

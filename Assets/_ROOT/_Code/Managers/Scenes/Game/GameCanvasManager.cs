@@ -85,6 +85,9 @@ public class GameCanvasManager : MonoBehaviour
     public GameObject ecoFootprintDialogGroupForestal;
     public GameObject ecoFootprintDialogGroupurbanismo;
 
+    [Header("TutorialScreen")]
+    public GameObject tutorialScreen;
+
     // QUIZZES
     private int _cachedAnswerIndex;
     private EcoFootprint _cachedEcofootprint;
@@ -216,10 +219,10 @@ public class GameCanvasManager : MonoBehaviour
             GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
 
             //  THIS NEEDS TO BE REFACTORED
-            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionFirst);
-            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionBronze);
-            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionSilver);
-            PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionGold);
+            //PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionFirst);
+            //PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionBronze);
+            //PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionSilver);
+            //PlayServices.Instance.UpdateAchievementValue(E_AchievementType.EcologicalActionGold);
 
             quizTitleLabel.text = "¡CORRECTO!";
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerCorrect);
@@ -354,6 +357,16 @@ public class GameCanvasManager : MonoBehaviour
         ecoFootprintInfoDialogScreen.SetActive(false);
     }
 
+    public void OpenTutorialScreen()
+    {
+        tutorialScreen.SetActive(true);
+    }
+
+    public void CloseTutorialScreen()
+    {
+        tutorialScreen.SetActive(false);
+    }
+
     #endregion
 
 
@@ -366,12 +379,12 @@ public class GameCanvasManager : MonoBehaviour
 
     public void AchievementsButton()
     {
-        PlayServices.Instance.OpenAchievementsScreen();
+        //PlayServices.Instance.OpenAchievementsScreen();
     }
 
     public void LeaderboardButton()
     {
-        PlayServices.Instance.OpenLeaderboardScreen();
+        //PlayServices.Instance.OpenLeaderboardScreen();
     }
 
 

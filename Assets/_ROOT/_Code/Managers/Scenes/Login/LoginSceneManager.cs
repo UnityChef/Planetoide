@@ -36,39 +36,39 @@ namespace EcoMundi.Managers
 
         public void SignInToPlayServicesButton() //lgsus
         {
-            if (!Social.localUser.authenticated)
-            {
-                PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
-            }
-            else
-            {
-                PlayGamesPlatform.Instance.SignOut();
+            //if (!Social.localUser.authenticated)
+            //{
+            //    PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
+            //}
+            //else
+            //{
+            //    PlayGamesPlatform.Instance.SignOut();
 
-                signInButtonLabel.text = "Sign in";
-                authStatusLabel.text = "";
-            }
+            //    signInButtonLabel.text = "Sign in";
+            //    authStatusLabel.text = "";
+            //}
         }
 
 
-        private void SignInSuccessCallback()
-        {
-            Debug.Log($"[GameServices] Signed in !");
+        //private void SignInSuccessCallback()
+        //{
+        //    Debug.Log($"[GameServices] Signed in !");
 
-            signInButtonLabel.text = "Sign out";
-            authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
+        //    signInButtonLabel.text = "Sign out";
+        //    authStatusLabel.text = $"Signed in as: {Social.Active.localUser.userName}";
 
-            canvasManager.playButtonObject.SetActive(true);
+        //    canvasManager.playButtonObject.SetActive(true);
 
-            PlayServices.Instance.LoadGameData();
-        }
+        //    PlayServices.Instance.LoadGameData();
+        //}
 
-        private void SignInFailCallback()
-        {
-            Debug.Log($"[GameServices] Sign-in failed...");
+        //private void SignInFailCallback()
+        //{
+        //    Debug.Log($"[GameServices] Sign-in failed...");
 
-            signInButtonLabel.text = "Sign in";
-            authStatusLabel.text = $"Sign-in failed...";
-        }
+        //    signInButtonLabel.text = "Sign in";
+        //    authStatusLabel.text = $"Sign-in failed...";
+        //}
 
 
         #endregion

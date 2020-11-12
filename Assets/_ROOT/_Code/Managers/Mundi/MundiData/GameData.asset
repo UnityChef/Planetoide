@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3136c84e1fc0944a72d24785baadae, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  province: 0
-  mundiName: 
-  gameDays: 0
-  gamePoints: 0
-  shopPoints: 0
-  difficultyModifier: 1.5
-  MAX_HEALTH: 100
-  currentHealth: 100
+  province: 1
+  mundiName: Mimundi
+  gamePoints: 1
+  shopPoints: 1
+  difficultyModifier: 1
+  MAX_HEALTH: 1
+  currentHealth: 1
+  ecofootprintCityValue: 5
+  ecofootprintCropsValue: 2
+  ecofootprintForestValue: 5
+  ecofootprintFarmingValue: 2
+  ecofootprintFisheriesValue: 2
+  ecofootprintCarbonValue: 5
+  ecologicalActionsDone: 5
