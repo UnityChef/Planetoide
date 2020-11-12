@@ -23,7 +23,7 @@ namespace EcoMundi.Data
         [Space]
         public float difficultyModifier;
         [Space]
-        public int MAX_HEALTH = 100;
+        public int MAX_HEALTH;
         public int currentHealth;
         public bool IsAlive { get { return currentHealth > 0; } }
         [Space]
@@ -63,6 +63,8 @@ namespace EcoMundi.Data
             ecofootprintFarmingValue = 0;
             ecofootprintFisheriesValue = 0;
             ecofootprintCarbonValue = 0;
+
+            MAX_HEALTH = 100;
         }
 
         public void SetDifficultyType(E_DifficultyType p_difficultyType)

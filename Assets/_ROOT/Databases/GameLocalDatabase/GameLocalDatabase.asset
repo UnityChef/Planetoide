@@ -18,8 +18,9 @@ MonoBehaviour:
       type: 3}
     monumentName: "Tortuga gigante de Gal\xE1pagos"
   - province: 2
-    symbolPrefab: {fileID: 0}
-    monumentName: 
+    symbolPrefab: {fileID: 6374015983157009190, guid: 093a3ab2e258dfe418431c251f14d93c,
+      type: 3}
+    monumentName: Arrecife Drake
   - province: 3
     symbolPrefab: {fileID: 6374015983157009190, guid: 093a3ab2e258dfe418431c251f14d93c,
       type: 3}
@@ -47,7 +48,7 @@ MonoBehaviour:
   - province: 9
     symbolPrefab: {fileID: 7506325127060525322, guid: da86b2849bcc1b94d99bc0d89c431696,
       type: 3}
-    monumentName: Monumento Mitad del mundo
+    monumentName: Monumento Mitad del Mundo
   - province: 10
     symbolPrefab: {fileID: 5462124522858719199, guid: 0720bf57ef98410478bd10a552b7c545,
       type: 3}

@@ -88,6 +88,13 @@ public class GameCanvasManager : MonoBehaviour
     [Header("TutorialScreen")]
     public GameObject tutorialScreen;
 
+    [Header("CongratulationsScreen")]
+    public GameObject congratulationsScreen;
+
+    [Header("ShopScreen")]
+    public GameObject shopScreen;
+    public TMP_Text yourCoinsLabel;
+
     // QUIZZES
     private int _cachedAnswerIndex;
     private EcoFootprint _cachedEcofootprint;
@@ -116,6 +123,10 @@ public class GameCanvasManager : MonoBehaviour
         GameData.OnGamePointsModified += ModifyGamePointsLabel;
         GameData.OnShopPointsModified += ModifyShopPointsLabel;
         GameData.OnHealthModified += ModifyHealthBar;
+
+        flagItem.SetActive(false);
+        moonItem.SetActive(false);
+        crownItem.SetActive(false);
     }
 
     private void OnDestroy()
@@ -243,6 +254,9 @@ public class GameCanvasManager : MonoBehaviour
             pointsWonLabel.text = $"+{100 * gameData.difficultyModifier} Ecopuntos";
             coinsWonLabel.text = $"+{1 * gameData.difficultyModifier} Ecomonedas";
             wonPrizeObject.SetActive(true);
+
+            if (gameData.currentHealth == 100)
+                OpenCongratulationsScreen();
         }
         else
         {
@@ -367,9 +381,30 @@ public class GameCanvasManager : MonoBehaviour
         tutorialScreen.SetActive(false);
     }
 
+    public void OpenCongratulationsScreen()
+    {
+        congratulationsScreen.SetActive(true);
+    }
+
+    public void CloseCongratulationsScreen()
+    {
+        congratulationsScreen.SetActive(false);
+    }
+
+    public void OpenShopScreen()
+    {
+        yourCoinsLabel.text = $"{gameData.shopPoints}";
+        shopScreen.SetActive(true);
+    }
+
+    public void CloseShopScreen()
+    {
+        shopScreen.SetActive(false);
+    }
+
     #endregion
 
-
+    //lgsus
     public void ModifyHealthBar()
     {
         healthBarRectTransform.sizeDelta = new Vector2(gameData.currentHealth * 5f, 0f);
@@ -397,5 +432,31 @@ public class GameCanvasManager : MonoBehaviour
         }
 
         yield break;
+    }
+
+    public GameObject flagItem; //lgsus
+    public GameObject moonItem;
+    public GameObject crownItem;
+
+    public void BuyShopItem(int p_itemIndex)
+    {
+        if (p_itemIndex == 1 && gameData.shopPoints >= 10)
+        {
+            flagItem.SetActive(true);
+            gameData.ModifyShopPoints(-10);
+        }
+
+        if (p_itemIndex == 2 && gameData.shopPoints >= 50)
+        {
+            moonItem.SetActive(true);
+            gameData.ModifyShopPoints(-50);
+        }
+
+        if (p_itemIndex == 3 && gameData.shopPoints >= 100)
+        {
+            crownItem.SetActive(true);
+            gameData.ModifyShopPoints(-100);
+        }
+
     }
 }
