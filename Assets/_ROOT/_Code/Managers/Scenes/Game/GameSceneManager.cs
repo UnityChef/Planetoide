@@ -99,6 +99,8 @@ namespace EcoMundi.Managers
                     break;
                 }
             }
+
+            UpdatePlanetFaceHandle();
         }
 
         private void OnDestroy()

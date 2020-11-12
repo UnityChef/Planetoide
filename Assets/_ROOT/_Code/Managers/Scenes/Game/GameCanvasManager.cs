@@ -198,7 +198,17 @@ public class GameCanvasManager : MonoBehaviour
         if (localDatabase.quizDatabase[_quizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
         {
             resultPrizeLabel.text = "Recompensas";
-            gameData.ModifyMundiHealth(1);
+            if (gameData.GetDifficulty() == E_DifficultyType.Easy)
+            {
+                gameData.ModifyMundiHealth(5);
+                healthValueLabel.text = "+5";
+            }
+            else
+            {
+                gameData.ModifyMundiHealth(2);
+                healthValueLabel.text = "+2";
+            }
+
             gameData.ModifyGamePoints(100);
             gameData.ModifyShopPoints(1);
 
@@ -224,17 +234,25 @@ public class GameCanvasManager : MonoBehaviour
             ecofootprint2Valuelabel.text = "+1";
 
             // Affected planet health
-            healthValueLabel.text = "+1";
             healthValuebackgroundImage.color = correctColor;
             healthPlanetCorrectFaceObject.SetActive(true);
 
-            pointsWonLabel.text = $"+{gameData.gamePoints} Ecopuntos";
-            coinsWonLabel.text = $"+{gameData.shopPoints} Ecomonedas";
+            pointsWonLabel.text = $"+{100 * gameData.difficultyModifier} Ecopuntos";
+            coinsWonLabel.text = $"+{1 * gameData.difficultyModifier} Ecomonedas";
             wonPrizeObject.SetActive(true);
         }
         else
         {
-            gameData.ModifyMundiHealth(-1);
+            if (gameData.GetDifficulty() == E_DifficultyType.Easy)
+            {
+                gameData.ModifyMundiHealth(0);
+                healthValueLabel.text = "0";
+            }
+            else
+            {
+                gameData.ModifyMundiHealth(-2);
+                healthValueLabel.text = "-2";
+            }
 
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
@@ -252,7 +270,6 @@ public class GameCanvasManager : MonoBehaviour
             ecofootprint2Valuelabel.text = "-1";
 
             // Affected planet health
-            healthValueLabel.text = "-1";
             healthValuebackgroundImage.color = incorrectColor;
             healthPlanetIncorrectFaceObject.SetActive(true);
 
@@ -262,8 +279,9 @@ public class GameCanvasManager : MonoBehaviour
                 gameData.ModifyGamePoints(-100);
                 gameData.ModifyShopPoints(-1);
 
-                pointsWonLabel.text = $"-{gameData.gamePoints} Ecopuntos";
-                coinsWonLabel.text = $"-{gameData.shopPoints} Ecomonedas";
+                pointsWonLabel.text = $"-{(100 * gameData.difficultyModifier)} Ecopuntos";
+                coinsWonLabel.text = $"-{1 * gameData.difficultyModifier} Ecomonedas";
+
                 wonPrizeObject.SetActive(true);
             }
             else
@@ -359,11 +377,10 @@ public class GameCanvasManager : MonoBehaviour
 
     private IEnumerator<float> C_DecreaseHealth()
     {
-        while(gameData.IsAlive)
+        while (gameData.IsAlive)
         {
             gameData.ModifyMundiHealth(-1);
-
-            yield return Timing.WaitForSeconds(4f);
+            yield return Timing.WaitForSeconds(30f);
         }
 
         yield break;
