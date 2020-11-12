@@ -15,10 +15,8 @@ public class GameCanvasManager : MonoBehaviour
     [Header("UI")]
     public TMP_Text mundiNameLabel;
     [Space]
-    public TMP_Text gameDaysLabel;
     public TMP_Text gamePointsLabel;
     public TMP_Text shopPointsLabel;
-
 
     [Header("LeftSideBar")]
     public GameObject achievementsButtonObject;
@@ -44,7 +42,7 @@ public class GameCanvasManager : MonoBehaviour
     [Space]
     public TMP_Text quizResultFeedbackLabel;
     public TMP_Text quizTitleLabel;
-    public Image quizResultImage; //lgsus
+    public Image quizResultImage;
     // Ecofootprint 1 related
     public Image ecofootprint1Image;
     public TMP_Text ecofootprint1NameLabel;
@@ -61,6 +59,7 @@ public class GameCanvasManager : MonoBehaviour
     public GameObject healthPlanetCorrectFaceObject;
     public GameObject healthPlanetIncorrectFaceObject;
     //Prizes related
+    public TMP_Text resultPrizeLabel;
     public GameObject wonPrizeObject;
     public GameObject noPrizeObject;
     public TMP_Text pointsWonLabel;
@@ -89,7 +88,6 @@ public class GameCanvasManager : MonoBehaviour
     // QUIZZES
     private int _cachedAnswerIndex;
     private EcoFootprint _cachedEcofootprint;
-    private int _cachedPointsWon;
 
     private void Awake()
     {
@@ -103,15 +101,15 @@ public class GameCanvasManager : MonoBehaviour
         mundiNameLabel.text = gameData.mundiName;
         ModifyHealthBar();
 
-        gameDaysLabel.text = 
         gamePointsLabel.text = gameData.GetGamePoints();
         shopPointsLabel.text = gameData.GetShopPoints();
 
-        achievementsButtonObject.SetActive(Social.localUser.authenticated);
-        leaderboardButtonObject.SetActive(Social.localUser.authenticated);
+        //achievementsButtonObject.SetActive(Social.localUser.authenticated);
+        //leaderboardButtonObject.SetActive(Social.localUser.authenticated);
 
+        achievementsButtonObject.SetActive(false);
+        leaderboardButtonObject.SetActive(false);
 
-        GameData.OnGameDaysModified += ModifyGameDaysLabel;
         GameData.OnGamePointsModified += ModifyGamePointsLabel;
         GameData.OnShopPointsModified += ModifyShopPointsLabel;
         GameData.OnHealthModified += ModifyHealthBar;
@@ -119,18 +117,12 @@ public class GameCanvasManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameData.OnGameDaysModified -= ModifyGameDaysLabel;
         GameData.OnGamePointsModified -= ModifyGamePointsLabel;
         GameData.OnShopPointsModified -= ModifyShopPointsLabel;
         GameData.OnHealthModified -= ModifyHealthBar;
     }
 
     #region [-----     POINTS DELEGATES SUSCRIPTION METHODS     -----]
-
-    public void ModifyGameDaysLabel()
-    {
-        gameDaysLabel.text = gameData.GetGameDays();
-    }
 
     public void ModifyGamePointsLabel()
     {
@@ -205,9 +197,10 @@ public class GameCanvasManager : MonoBehaviour
 
         if (localDatabase.quizDatabase[_quizIndex].answerOptions[_cachedAnswerIndex].isCorrect)
         {
+            resultPrizeLabel.text = "Recompensas";
             gameData.ModifyMundiHealth(1);
-            _cachedPointsWon = gameData.ModifyGamePoints(100);
-            gameData.ModifyShopPoints(5);
+            gameData.ModifyGamePoints(100);
+            gameData.ModifyShopPoints(1);
 
             GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
             GameSceneManager.Instance.ModifyZonesValues(1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
@@ -235,8 +228,8 @@ public class GameCanvasManager : MonoBehaviour
             healthValuebackgroundImage.color = correctColor;
             healthPlanetCorrectFaceObject.SetActive(true);
 
-            pointsWonLabel.text = $"+{_cachedPointsWon} Ecopuntos";
-            coinsWonLabel.text = $"+5 Ecomonedas";
+            pointsWonLabel.text = $"+{gameData.gamePoints} Ecopuntos";
+            coinsWonLabel.text = $"+{gameData.shopPoints} Ecomonedas";
             wonPrizeObject.SetActive(true);
         }
         else
@@ -245,7 +238,6 @@ public class GameCanvasManager : MonoBehaviour
 
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneOne);
             GameSceneManager.Instance.ModifyZonesValues(-1, localDatabase.quizDatabase[_quizIndex].affectedZoneTwo);
-
 
             quizTitleLabel.text = "INCORRECTO";
             AudioManager.Instance.PlaySound(E_SoundEffects.AnswerWrong);
@@ -263,7 +255,23 @@ public class GameCanvasManager : MonoBehaviour
             healthValueLabel.text = "-1";
             healthValuebackgroundImage.color = incorrectColor;
             healthPlanetIncorrectFaceObject.SetActive(true);
-            noPrizeObject.SetActive(true);
+
+            if (gameData.GetDifficulty() == E_DifficultyType.Normal)
+            {
+                resultPrizeLabel.text = "Penalización";
+                gameData.ModifyGamePoints(-100);
+                gameData.ModifyShopPoints(-1);
+
+                pointsWonLabel.text = $"-{gameData.gamePoints} Ecopuntos";
+                coinsWonLabel.text = $"-{gameData.shopPoints} Ecomonedas";
+                wonPrizeObject.SetActive(true);
+            }
+            else
+            {
+                resultPrizeLabel.text = "Recompensas";
+                noPrizeObject.SetActive(true);
+            }
+
         }
 
         quizResultFeedbackLabel.text = localDatabase.quizDatabase[_quizIndex].answerFeedback;

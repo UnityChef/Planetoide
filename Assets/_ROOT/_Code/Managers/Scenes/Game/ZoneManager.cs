@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using EcoMundi.Data;
 
 [Serializable]
 public class ZoneManager : MonoBehaviour
 {
+    public GameData gameData;
     public E_ZoneType zoneType;
     public int zoneTierValue;
     private int zoneTierMaxValue = 5;
@@ -15,7 +17,6 @@ public class ZoneManager : MonoBehaviour
 
     [Header("Zone Status List")]
     public List<GameObject> tierGroupsList;
-
 
     #region [-----     BEHAVIOURS     -----]
 
@@ -35,6 +36,30 @@ public class ZoneManager : MonoBehaviour
             zoneTierValue = 0;
         if (zoneTierValue >= zoneTierMaxValue)
             zoneTierValue = zoneTierMaxValue;
+
+        switch (zoneType)
+        {
+            case E_ZoneType.Carbon:
+                gameData.ecofootprintCarbonValue = zoneTierValue;
+                break;
+            case E_ZoneType.Crops:
+                gameData.ecofootprintCropsValue = zoneTierValue;
+                break;
+            case E_ZoneType.Forest:
+                gameData.ecofootprintForestValue = zoneTierValue;
+                break;
+            case E_ZoneType.Farming:
+                gameData.ecofootprintFarmingValue = zoneTierValue;
+                break;
+            case E_ZoneType.Fishery:
+                gameData.ecofootprintFisheriesValue = zoneTierValue;
+                break;
+            case E_ZoneType.City:
+                gameData.ecofootprintCityValue = zoneTierValue;
+                break;
+            default:
+                break;
+        }
 
         ModifyZoneTierUI();
         ModifyZoneVisuals();

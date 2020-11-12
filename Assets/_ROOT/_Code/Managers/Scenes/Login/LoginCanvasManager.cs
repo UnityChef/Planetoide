@@ -40,15 +40,15 @@ namespace EcoMundi.Managers
 
         private IEnumerator Start()
         {
-           // playButtonObject.SetActive(false);
+            playButtonObject.SetActive(true);
             signInButtonObject.SetActive(false);
 
             yield return Timing.WaitForOneFrame;
 
-            if (Social.Active.localUser.authenticated)
-                playButtonObject.SetActive(true);
-            else
-                signInButtonObject.SetActive(true);
+            //if (Social.Active.localUser.authenticated)
+            //    playButtonObject.SetActive(true);
+            //else
+            //    signInButtonObject.SetActive(true);
 
             // Dropdown
             provinceDropdown.onValueChanged.AddListener(delegate {
@@ -89,8 +89,7 @@ namespace EcoMundi.Managers
 
             validationMessageLabel.text = string.Empty;
 
-            gameData.mundiName = mundiNameInputField.text;
-            gameData.province = (E_Province)provinceDropdown.value;
+            gameData.SetNewGameData(mundiNameInputField.text, (E_Province)provinceDropdown.value);
 
             ShowScreen(E_ScreenType.Play);
         }

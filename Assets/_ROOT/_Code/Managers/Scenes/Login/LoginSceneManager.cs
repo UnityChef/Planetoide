@@ -22,7 +22,7 @@ namespace EcoMundi.Managers
         {
             yield return Timing.WaitForOneFrame;
             // Trying silent sign-in
-            PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
+            //PlayServices.Instance.SignIn(SignInSuccessCallback, SignInFailCallback);
 
             if (!GameManager.HasFirstTimePlayed)
                 canvasManager.ShowScreen(LoginCanvasManager.E_ScreenType.Welcome);
@@ -32,11 +32,9 @@ namespace EcoMundi.Managers
             yield break;
         }
 
-        
-
         #region [-----     GOOGLE PLAY GAMES SERVICES     -----]
 
-        public void SignInToPlayServicesButton()
+        public void SignInToPlayServicesButton() //lgsus
         {
             if (!Social.localUser.authenticated)
             {

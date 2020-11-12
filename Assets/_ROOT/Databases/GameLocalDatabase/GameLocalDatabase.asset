@@ -114,12 +114,12 @@ MonoBehaviour:
     affectedZoneOne: 3
     affectedZoneTwo: 6
     answerOptions:
-    - answer: 5 minutos
-      isCorrect: 1
-    - answer: 7 minutos
-      isCorrect: 0
     - answer: 10 minutos
       isCorrect: 0
+    - answer: 20 minutos
+      isCorrect: 0
+    - answer: 5 minutos
+      isCorrect: 1
     answerFeedback: "Tu ducha deber\xEDa limitarse a 5 minutos para un uso sostenible
       de agua y energ\xEDa."
   - question: "\xBFQu\xE9 medio de transporte quieres usar para ir al colegio?"
@@ -127,7 +127,7 @@ MonoBehaviour:
     affectedZoneOne: 1
     affectedZoneTwo: 6
     answerOptions:
-    - answer: Caminar o bicicleta
+    - answer: Caminar o ir en bicicleta
       isCorrect: 1
     - answer: "Autom\xF3vil"
       isCorrect: 0
@@ -140,27 +140,27 @@ MonoBehaviour:
     affectedZoneOne: 2
     affectedZoneTwo: 5
     answerOptions:
+    - answer: Dejarlo conectado
+      isCorrect: 0
     - answer: Desconectarlo
       isCorrect: 1
-    - answer: Dejar conectado
-      isCorrect: 0
-    answerFeedback: "Un cargador conectado consume energ\xEDa"
-  - question: "La camiseta bonita que ya no te queda (porque creciste). Qu\xE9 podr\xEDas
-      hacer con ella?"
+    answerFeedback: "Un cargador conectado consume energ\xEDa."
+  - question: "La camiseta bonita que ya no te queda (porque creciste). \xBFQu\xE9
+      podr\xEDas hacer con ella?"
     quizType: 2
     affectedZoneOne: 3
     affectedZoneTwo: 2
     answerOptions:
-    - answer: Regalar para reutilizar
-      isCorrect: 1
     - answer: Olvidarla
       isCorrect: 0
+    - answer: Regalar para reutilizar
+      isCorrect: 1
     - answer: Botarla
       isCorrect: 0
     answerFeedback: "La producci\xF3n de ropa genera emisiones de gases de efecto
       invernadero. Se recomienda  reciclar reutilizar la ropa que est\xE9 en buen
-      estado"
-  - question: "La tele est\xE1 prendida en casa cuando:"
+      estado."
+  - question: "La televisi\xF3n deber\xEDa estar prendida en casa cuando:"
     quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 6
@@ -176,19 +176,19 @@ MonoBehaviour:
   - question: "\xBFCu\xE1ndo haces tareas escolares?"
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 6
+    affectedZoneTwo: 2
     answerOptions:
-    - answer: "Despu\xE9s de las clases en la tarde"
-      isCorrect: 1
-    - answer: En la noche
-      isCorrect: 0
     - answer: Nunca
       isCorrect: 0
-    answerFeedback: "Haz tus tareas en la luz del sol para evitar usar luz el\xE9ctrico"
-  - question: 'Cuando tienes ganas de tomar agua:'
+    - answer: En la noche
+      isCorrect: 0
+    - answer: "Despu\xE9s de las clases en la tarde"
+      isCorrect: 1
+    answerFeedback: "Haz tus tareas en la luz del sol para evitar usar luz el\xE9ctrica."
+  - question: "\xBFQu\xE9 haces cuando tienes ganas de tomar agua?"
     quizType: 3
     affectedZoneOne: 5
-    affectedZoneTwo: 6
+    affectedZoneTwo: 2
     answerOptions:
     - answer: Relleno una botella reutilizable que llevo conmigo a todas partes
       isCorrect: 1
@@ -196,57 +196,56 @@ MonoBehaviour:
       isCorrect: 0
     answerFeedback: "Cada botella de pl\xE1stico que compras genera mayor basura 
       y contaminaci\xF3n despu\xE9s de su uso y mayores emisiones de carbono para
-      su producci\xF3n"
-  - question: Te gusta comprar cosas nuevas o usadas?
+      su producci\xF3n."
+  - question: "\xBFDeber\xEDas comprar cosas nuevas o usadas?"
     quizType: 2
     affectedZoneOne: 1
-    affectedZoneTwo: 6
+    affectedZoneTwo: 2
     answerOptions:
+    - answer: Nuevas
+      isCorrect: 0
     - answer: Usadas
       isCorrect: 1
-    - answer: Nueva
-      isCorrect: 0
     answerFeedback: "Cada producto nuevo tiene una cadena de producci\xF3n que genera
-      contaminaci\xF3n y basura"
-  - question: "Si tienes calor adentro \xBFQu\xE9 haces?"
+      contaminaci\xF3n y basura."
+  - question: "Si tienes calor dentro de una habitaci\xF3n \xBFQu\xE9 haces?"
     quizType: 0
     affectedZoneOne: 1
-    affectedZoneTwo: 6
+    affectedZoneTwo: 2
     answerOptions:
-    - answer: '"Abrir la ventana"'
-      isCorrect: 1
     - answer: Aumentar el aire acondicionado
       isCorrect: 0
-    - answer: Ponerse ropa holgada
-      isCorrect: 0
+    - answer: Abrir la ventana
+      isCorrect: 1
     answerFeedback: "User aire acondicionado aumenta los gases invernadero en la
-      atm\xF3sfera y consume electricidad en momentos que no ser\xEDa necesario"
-  - question: "Que haces con los desechos org\xE1nicos?"
+      atm\xF3sfera y consume electricidad en momentos que no ser\xEDa necesario."
+  - question: "\xBFQu\xE9 haces con los desechos org\xE1nicos?"
     quizType: 0
     affectedZoneOne: 6
-    affectedZoneTwo: 0
+    affectedZoneTwo: 4
     answerOptions:
     - answer: Compostear
       isCorrect: 1
     - answer: Botar
       isCorrect: 0
-    answerFeedback: "50%+ de residuos son org\xE1nicos, se lo puede evitar con compostaje"
-  - question: Que tipo de cuenta bancaria tienes tu o tu familia?
+    answerFeedback: "Los residuos org\xE1nicos se pueden usar para compostaje."
+  - question: "\xBFQu\xE9 tipo de cuenta bancaria deber\xEDas tener tu y tu familia?"
     quizType: 0
     affectedZoneOne: 3
-    affectedZoneTwo: 6
+    affectedZoneTwo: 4
     answerOptions:
     - answer: Ahorros
       isCorrect: 0
-    - answer: Ninguno
-      isCorrect: 0
     - answer: Cuenta Verde
       isCorrect: 1
-    answerFeedback: "Cuentas verdes prometen invertir en la econom\xEDa verde"
+    - answer: Corriente
+      isCorrect: 0
+    answerFeedback: "Las cuentas bancarias verdes prometen invertir en la econom\xEDa
+      verde."
   - question: "\xBFQu\xE9 haces cuando ves basura por la calle?"
     quizType: 3
     affectedZoneOne: 5
-    affectedZoneTwo: 6
+    affectedZoneTwo: 4
     answerOptions:
     - answer: La recojo y la llevo a un punto de reciclaje
       isCorrect: 1
@@ -254,21 +253,20 @@ MonoBehaviour:
       isCorrect: 1
     - answer: La dejo en la calle
       isCorrect: 0
-    answerFeedback: 'Al recoger la basura de la calle, evitas que termine contaminando
-      fuentes de agua y el alcantarillado de tu ciudad '
-  - question: "\"Productos locales o importados?\n\n(p.ej. Manzana de Chile o Pi\xF1a
-      de Ecuador?)\""
+    answerFeedback: Al recoger la basura de la calle, evitas que termine contaminando
+      fuentes de agua y el alcantarillado de tu ciudad.
+  - question: "\xBFQu\xE9 productos deber\xEDas consumir? \xBFlocales o importados?"
     quizType: 2
     affectedZoneOne: 1
-    affectedZoneTwo: 6
+    affectedZoneTwo: 4
     answerOptions:
-    - answer: Preferir productos locales/nacionales
+    - answer: Productos locales/nacionales
       isCorrect: 1
-    - answer: Todo importado
+    - answer: Importados
       isCorrect: 0
-    answerFeedback: "\"Emisiones por largas v\xEDas de suministro.\nProducci\xF3n
-      local aprovecha condiciones beneficiosos (agricultura)\""
-  - question: "Cuando preparas una exposici\xF3n en tu colegio"
+    answerFeedback: "Consumir productos Importados genera emisiones de CO2 por largas
+      v\xEDas de suministro y transporte. "
+  - question: "Cuando preparas una exposici\xF3n en tu colegio:"
     quizType: 1
     affectedZoneOne: 3
     affectedZoneTwo: 6
@@ -278,79 +276,82 @@ MonoBehaviour:
     - answer: Imprimo y uso papeles
       isCorrect: 0
     answerFeedback: "Usar medios digitales reduce el consumo de papel y materiales
-      basados en petroleo, por lo cual aporta a la reducci\xF3n de deforestaci\xF3n"
+      basados en petroleo, por lo cual aporta a la reducci\xF3n de deforestaci\xF3n."
   - question: "S\xED tu conductor (madre, padre, chofer del bus escolar etc.) se
-      acerca a un cruce peatonal..."
+      acerca a un cruce peatonal:"
     quizType: 4
     affectedZoneOne: 6
-    affectedZoneTwo: 0
+    affectedZoneTwo: 4
     answerOptions:
-    - answer: Le pido que deje pasar a los peatones
-      isCorrect: 1
-    - answer: "Le digo dale m\xE1s r\xE1pido"
-      isCorrect: 0
     - answer: No digo nada
       isCorrect: 0
-    answerFeedback: "Una ciudad amigable para peatones es m\xE1s sostenible"
-  - question: "Para entregar un trabajo impreso, cu\xE1ntos lados del papel utilizas?"
+    - answer: "Le digo que avance m\xE1s r\xE1pido"
+      isCorrect: 0
+    - answer: Le pido que deje pasar a los peatones
+      isCorrect: 1
+    answerFeedback: "Una ciudad amigable para peatones es m\xE1s sostenible."
+  - question: "Para entregar un trabajo impreso \xBFcu\xE1ntos lados del papel utilizas?"
     quizType: 1
     affectedZoneOne: 3
     affectedZoneTwo: 6
     answerOptions:
-    - answer: Dos caras
-      isCorrect: 1
-    - answer: Una cara
-      isCorrect: 0
     - answer: No importa
       isCorrect: 0
-    answerFeedback: "Una tonelada de papel, es necesario alrededor de 17 \xE1rboles
+    - answer: Una cara
+      isCorrect: 0
+    - answer: Dos caras
+      isCorrect: 1
+    answerFeedback: "Para una tonelada de papel, es necesario alrededor de 17 \xE1rboles
       maduros y cerca de 5,800 kilowatts de energ\xEDa sin contar el agua y combustible
-      de transporte"
+      de transporte."
   - question: "\xBFConsumes agua envasada en botellas de pl\xE1stico o llevas tu
       tomatodo?"
     quizType: 3
     affectedZoneOne: 5
-    affectedZoneTwo: 6
+    affectedZoneTwo: 4
     answerOptions:
     - answer: Tomatodo
       isCorrect: 1
-    - answer: "Botellas pl\xE1stcias"
+    - answer: "Botellas pl\xE1sticas"
       isCorrect: 0
-    - answer: retornables
+    - answer: Botellas retornables
       isCorrect: 0
     answerFeedback: "Las botellas provienen de productos de petr\xF3leo y se demoran
       entre 100-700 a\xF1os en degradarse y la mayor\xEDa termina en r\xEDos, playas
-      y oc\xE9anos"
-  - question: "Apagas la luz, cada vez que sales de una habitaci\xF3n que queda deshabitada?"
+      y oc\xE9anos."
+  - question: "\xBFApagas la luz cada vez que sales de una habitaci\xF3n que queda
+      deshabitada?"
     quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 6
     answerOptions:
-    - answer: Lo apagas
+    - answer: La apagas
       isCorrect: 1
-    - answer: Lo dejas prendido
+    - answer: La dejas encendida
       isCorrect: 0
     - answer: No importa
       isCorrect: 0
     answerFeedback: "La producci\xF3n de energ\xEDa el\xE9ctrica involucra varios
       procesos que influyen en el cambio clim\xE1tico acelerado. El consumo eficiente
       de este recurso, aporta al cuidado del ambiente."
-  - question: "Al usar ambos lados del papel, lo botas al tacho com\xFAn o lo reciclas"
+  - question: "Al usar ambos lados del papel \xBFlo botas al tacho com\xFAn o lo
+      reciclas?"
     quizType: 1
     affectedZoneOne: 3
     affectedZoneTwo: 6
     answerOptions:
-    - answer: reciclaje
-      isCorrect: 1
-    - answer: Se mezcla con los diferentes desperdicios
+    - answer: Lo mezclo con diferentes tipos de desperdicios
       isCorrect: 0
+    - answer: Lo reciclo
+      isCorrect: 1
     - answer: No importa
       isCorrect: 0
     answerFeedback: "Una tonelada de papel, es necesario alrededor de 17 \xE1rboles
       maduros y cerca de 5,800 kilowatts de energ\xEDa sin contar el agua y combustible
-      de transporte. Promueve el reciclaje en tu hogar y colegio"
-  - question: "Cuando vas a tu tienda de barrio o al mercado, pides una bolsa pl\xE1stica
-      o llevas tu propia bolsa de tela o mochila para guardar lo que compras?"
+      de transporte. Promueve el reciclaje en tu hogar y colegio."
+  - question: "Cuando vas a tu tienda de barrio o al mercado \xBFpides una bolsa
+      pl\xE1stica o llevas tu propia bolsa de tela o mochila para guardar lo que
+      compras?"
     quizType: 2
     affectedZoneOne: 5
     affectedZoneTwo: 6
@@ -365,38 +366,38 @@ MonoBehaviour:
       de otros animales marinos, mueren cada a\xF1o debido a la ingesti\xF3n de bolsas
       de pl\xE1stico."
   - question: "Cuando visitas alg\xFAn lugar de esparcimiento como el parque, la
-      playa, r\xEDos, monta\xF1as, entre otros; tienes la iniciativa de recoger tus
-      desperdicios y depositarlos en los tachos diferenciados?"
+      playa, r\xEDos, monta\xF1as, entre otros; \xBFtienes la iniciativa de recoger
+      tus desperdicios y depositarlos en los tachos diferenciados?"
     quizType: 3
     affectedZoneOne: 5
     affectedZoneTwo: 3
     answerOptions:
-    - answer: lo dejas en el lugar
+    - answer: Lo dejas en el lugar
       isCorrect: 0
-    - answer: lo recoges y colocas la basura en los tachos diferenciados
+    - answer: Lo recoges y colocas la basura en los tachos diferenciados
       isCorrect: 1
     - answer: No importa
       isCorrect: 0
     answerFeedback: "Alrededor de 8 millones de toneladas de residuos pl\xE1sticos
       son depositadas en los oc\xE9anos cada a\xF1o. Estos residuos se transforman
       en micropl\xE1sticos suficientemente peque\xF1os para filtrarse en nuestra
-      comida"
-  - question: En tu hogar o escuela utilizan bombillas de luz de bajo consumo?
+      comida."
+  - question: "\xBFEn tu hogar o escuela que tipo de bombillas deber\xEDan utilizar?"
     quizType: 1
     affectedZoneOne: 6
-    affectedZoneTwo: 0
+    affectedZoneTwo: 4
     answerOptions:
-    - answer: Bombillas comjunes
+    - answer: Bombillas comunes
       isCorrect: 0
-    - answer: bombillas ahorradores / LED
+    - answer: Bombillas ahorradoras
       isCorrect: 1
     - answer: No improta
       isCorrect: 0
-    answerFeedback: "El consumo eficiente de este recurso, aporta al cuidado del
-      ambiente. Aprovecha la luz natural para hacer las tareas sin necesidad de encender
-      l\xE1mparas o focos. \u2022 Recomienda el uso de focos ahorradores en tu hogar"
-  - question: "Cuando vas al supermercado, compras productos que se encuentran empaquetados
-      con pl\xE1stico o prefieres los que est\xE1n en vidrio/papel o granel?"
+    answerFeedback: El consumo eficiente de este recurso aporta al cuidado del ambiente,
+      recomienda el uso de bombillas ahorradoras.
+  - question: "\xBFCuando vas al supermercado, compras productos que se encuentran
+      empaquetados con pl\xE1stico o prefieres los que est\xE1n en vidrio/papel o
+      granel?"
     quizType: 2
     affectedZoneOne: 5
     affectedZoneTwo: 6
@@ -408,44 +409,44 @@ MonoBehaviour:
     answerFeedback: "Los pl\xE1sticos de un solo uso causa altos niveles de contaminaci\xF3n.
       En el mar se vierten m\xE1s de 8 toneladas de residuos pl\xE1sticos que afectan
       a millones de animales marinos."
-  - question: "Han optado por opciones en el modelo energ\xE9tico en tu escuela basado
-      en energ\xEDas renovables?"
+  - question: "\xBFHan optado por opciones en el modelo energ\xE9tico en tu escuela
+      basado en energ\xEDas renovables?"
     quizType: 1
     affectedZoneOne: 1
     affectedZoneTwo: 6
     answerOptions:
-    - answer: "ahorro en la energ\xEDa/ energ\xEDa renovable (energ\xEDa solar)"
-      isCorrect: 1
-    - answer: "energ\xEDa com\xFAn"
+    - answer: "Energ\xEDa com\xFAn"
       isCorrect: 0
+    - answer: "Ahorro en la energ\xEDa/ energ\xEDa renovable (energ\xEDa solar)"
+      isCorrect: 1
     answerFeedback: Las emisiones de CO2 actuales indica que 9 de 10 personas respiran
-      aire contaminado
-  - question: Con tu familia o comunidad educativa eligen productos alimentarios
-      locales?
+      aire contaminado.
+  - question: "\xBFCon tu familia o comunidad educativa eligen productos alimentarios
+      locales?"
     quizType: 0
     affectedZoneOne: 1
     affectedZoneTwo: 6
     answerOptions:
-    - answer: Productos locales
-      isCorrect: 1
     - answer: Productos no locales
       isCorrect: 0
+    - answer: Productos locales
+      isCorrect: 1
     answerFeedback: "El consumo local permite el ahorro energ\xE9tico, y la reducci\xF3n
       de gases de efecto invernadero. Elige productos de cultivos sostenibles que
-      no han destruido bosques"
+      no han destruido bosques."
   - question: "\xBFCu\xE1l es el momento adecuado para regar las plantas?"
     quizType: 0
     affectedZoneOne: 2
     affectedZoneTwo: 4
     answerOptions:
-    - answer: "Muy temprano por la ma\xF1ana o despu\xE9s de la\nca\xEDda del sol"
-      isCorrect: 1
-    - answer: "Medio d\xEDa"
+    - answer: "Mediod\xEDa"
       isCorrect: 0
-    - answer: Cualquier momentos es adecuado
+    - answer: "Muy temprano por la ma\xF1ana o despu\xE9s de la ca\xEDda del sol"
+      isCorrect: 1
+    - answer: Cualquier momento es adecuado
       isCorrect: 0
     answerFeedback: "Regar tus plantas muy temprano o despu\xE9s de la ca\xEDda del
-      sol evita la p\xE9rdida de agua por evaporaci\xF3n"
+      sol evita la p\xE9rdida de agua por evaporaci\xF3n."
   - question: "\xBFC\xF3mo gestionas tus desechos y residuos s\xF3lidos?"
     quizType: 0
     affectedZoneOne: 1
@@ -458,7 +459,7 @@ MonoBehaviour:
     - answer: "Mediante separaci\xF3n en la fuente (organicos, papel, comunes, etc)"
       isCorrect: 1
     answerFeedback: El 24% de los residuos generados en las viviendas, corresponde
-      a material potencialmente reciclable
+      a material potencialmente reciclable.
   - question: "\xBFQu\xE9 podr\xEDas hacer para consumir menos energ\xEDa el\xE9ctrica
       en tu aula o dormitorio?"
     quizType: 0
@@ -470,29 +471,26 @@ MonoBehaviour:
     - answer: "Abrir las persianas y cortinas para aprovechar la energ\xEDa solar
         y usar focos ahorradores"
       isCorrect: 1
-    - answer: Usar focos ahorradores
-      isCorrect: 1
-    answerFeedback: "\"El buen uso de la energ\xEDa empieza en nuestro hogar y en
-      la oficina donde se encuentran muchos aparatos el\xE9ctricos que se dejan encendidos
+    answerFeedback: "El buen uso de la energ\xEDa empieza en nuestro hogar, escuela
+      u oficinas donde se encuentran muchos aparatos el\xE9ctricos que se dejan encendidos
       sin utilizarlos, esto contribuye a la emisi\xF3n de toneladas de di\xF3xido
-      de carbono a la atm\xF3sfera\""
+      de carbono a la atm\xF3sfera."
   - question: "Cuando necesitas \xFAtiles escolares, \xBFQu\xE9 tipo de productos
-      elijes?"
+      eliges?"
     quizType: 1
     affectedZoneOne: 3
     affectedZoneTwo: 2
     answerOptions:
     - answer: "Siempre compro nuevos art\xEDculos"
       isCorrect: 0
-    - answer: "\"Compro articulos elaborados con materiales reciclados\nVerifico
-        que el proceso de producci\xF3n sea amigable con el ambiente\""
+    - answer: "Compro art\xEDculos elaborados con materiales reciclados"
       isCorrect: 1
     - answer: "Compro nuevos art\xEDculos \xFAnicamente en el caso de no disponer
         de ninguno para reutilizar"
-      isCorrect: 0
-    answerFeedback: El uso de productos amigables con el ambiente, podemos proteger
-      los recursos del planeta y garantizar la existencia de recursos para generaciones
-      futuras.
+      isCorrect: 1
+    answerFeedback: Con el uso de productos amigables con el ambiente, ayudamos a
+      proteger los recursos del planeta y garantizar la existencia de recursos para
+      generaciones futuras.
   ecoFootprintList:
   - zoneType: 1
     zoneName: Carbono

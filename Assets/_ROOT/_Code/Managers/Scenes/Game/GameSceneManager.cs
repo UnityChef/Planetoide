@@ -50,8 +50,8 @@ namespace EcoMundi.Managers
         [Header("Monument")]
         public Transform monumentParentTransform;
 
-        // Estras
-        private const string MORE_INFO_URL = "http://google.com/";
+        // Extras
+        private const string MORE_INFO_URL = "https://gk.city/ecomundi/";
 
         private void Awake()
         {
@@ -60,24 +60,22 @@ namespace EcoMundi.Managers
 
         private void Start()
         {
-            if(!GameManager.HasFirstTimePlayed)
-            {
-                gameData.birthDate = DateTime.Now;
-            }
+            //if(!GameManager.HasFirstTimePlayed)
+            //{
+            //    gameData.birthDate = DateTime.Now;
+            //}
 
-            if(Social.localUser.authenticated)
-            {
-                Timing.CallDelayed(2f, () => PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi));
-            }
+            //if(Social.localUser.authenticated)
+            //{
+            //    Timing.CallDelayed(2f, () => PlayServices.Instance.UnlockAchievement(E_AchievementType.WelcomeToEcoMundi));
+            //}
 
-
-            carbonZoneManager.InitZoneTier(5);
-            cropsZoneManager.InitZoneTier(5);
-            forestZoneManager.InitZoneTier(5);
-            farmingZoneManager.InitZoneTier(5);
-            fisheryZoneManager.InitZoneTier(5);
-            cityZoneManager.InitZoneTier(5);
-
+            carbonZoneManager.InitZoneTier(gameData.ecofootprintCarbonValue);
+            cropsZoneManager.InitZoneTier(gameData.ecofootprintCropsValue);
+            forestZoneManager.InitZoneTier(gameData.ecofootprintForestValue);
+            farmingZoneManager.InitZoneTier(gameData.ecofootprintFarmingValue);
+            fisheryZoneManager.InitZoneTier(gameData.ecofootprintFisheriesValue);
+            cityZoneManager.InitZoneTier(gameData.ecofootprintCityValue);
 
             GameManager.OnFakeUpdate += OnUpdate;
             GameData.OnHealthModified += UpdatePlanetFaceHandle;
@@ -118,7 +116,7 @@ namespace EcoMundi.Managers
         {
             gameData.logOutDate = DateTime.Now;
 
-            gameData.UpdateLeaderboardsValue();
+            //gameData.UpdateLeaderboardsValue(); //lgsus
             
             //PlayServices.Instance.SaveCurrentGameData();
         }

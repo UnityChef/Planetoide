@@ -19,25 +19,31 @@ namespace EcoMundi.Data
         public string mundiName;
 
         [Header("Points")]
-        public int gameDays;
         public int gamePoints;
         public int shopPoints;
         [Space]
         public float difficultyModifier;
         [Space]
         public int MAX_HEALTH = 100;
-        public int currentHealth = 75;
+        public int currentHealth = 0;
         public bool IsAlive { get { return currentHealth > 0; } }
         [Space]
         public DateTime birthDate;// = new DateTime();
         public DateTime logOutDate;// = new DateTime();
+        [Space]
+        // Ecofootprints values
+        public int ecofootprintCityValue;
+        public int ecofootprintCropsValue;
+        public int ecofootprintForestValue;
+        public int ecofootprintFarmingValue;
+        public int ecofootprintFisheriesValue;
+        public int ecofootprintCarbonValue;
 
         // Achievements values
         public int ecologicalActionsDone = 0;
 
         // Events
         public delegate void VoidDelegate();
-        public static event VoidDelegate OnGameDaysModified;
         public static event VoidDelegate OnGamePointsModified;
         public static event VoidDelegate OnShopPointsModified;
         public static event VoidDelegate OnHealthModified;
@@ -45,49 +51,61 @@ namespace EcoMundi.Data
         // Resets all fields
         private void OnEnable()
         {
-            _difficultyType = E_DifficultyType.None;
-            province = E_Province.None;
+            //_difficultyType = E_DifficultyType.None;
+            //province = E_Province.None;
 
-            mundiName = string.Empty;
-            gameDays = 0;
-            gamePoints = 0;
-            shopPoints = 0;
+            //mundiName = string.Empty;
+            //gamePoints = 0;
+            //shopPoints = 0;
 
-            currentHealth = 100;
+            //currentHealth = 100;
         }
 
         #region [-----     GAME BEHAVIOURS     -----]
 
+        public void SetNewGameData(string p_mundiName, E_Province p_provinceType)
+        {
+            // PlayerPrefsDataRelated
+            PlayerPrefs.SetString("FirstTimePlay", "true");
+
+            mundiName = p_mundiName;
+            province = p_provinceType;
+            currentHealth = 0;
+            gamePoints = 0;
+            shopPoints = 0;
+
+            ecofootprintCityValue = 0;
+            ecofootprintCropsValue = 0;
+            ecofootprintForestValue = 0;
+            ecofootprintFarmingValue = 0;
+            ecofootprintFisheriesValue = 0;
+            ecofootprintCarbonValue = 0;
+        }
+
         public void SetDifficultyType(E_DifficultyType p_difficultyType)
         {
             if (p_difficultyType == E_DifficultyType.Easy)
-                difficultyModifier = 0.5f;
-            else
                 difficultyModifier = 1f;
+            else
+                difficultyModifier = 3f;
 
             _difficultyType = p_difficultyType;
         }
 
-        //  GAME DAYS
-        public void ModifyGameDays()
+        public E_DifficultyType GetDifficulty()
         {
-            gameDays++;
-            OnGameDaysModified?.Invoke();
-        }
-
-
-        public string GetGameDays()
-        {
-            return gameDays == 0 ? " 0" : gameDays.ToString("### ###");
+            return _difficultyType;
         }
 
         //  GAME POINTS
-        public int ModifyGamePoints(int p_value)
+        public void ModifyGamePoints(int p_value)
         {
             gamePoints += Mathf.CeilToInt(p_value * difficultyModifier);
-            OnGamePointsModified?.Invoke();
 
-            return Mathf.CeilToInt(p_value * difficultyModifier);
+            if (gamePoints < 0)
+                gamePoints = 0;
+
+            OnGamePointsModified?.Invoke();
         }
 
         public string GetGamePoints()
@@ -98,7 +116,11 @@ namespace EcoMundi.Data
         //  SHOP POINTS
         public void ModifyShopPoints(int p_value)
         {
-            shopPoints += p_value;
+            shopPoints += Mathf.CeilToInt(p_value * difficultyModifier);
+
+            if (shopPoints < 0)
+                shopPoints = 0;
+
             OnShopPointsModified?.Invoke();
         }
 
@@ -106,8 +128,6 @@ namespace EcoMundi.Data
         {
             return shopPoints == 0 ? " 0" : shopPoints.ToString("### ###");
         }
-
-
 
         public void ModifyMundiHealth(int p_value)
         {

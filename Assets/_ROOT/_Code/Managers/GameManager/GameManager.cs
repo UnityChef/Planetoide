@@ -25,6 +25,8 @@ namespace EcoMundi.Managers
 
         private void Start()
         {
+            ErasePlayerPrefs();
+            Debug.Log($"=== {HasFirstTimePlayed}");
             SceneManager.LoadScene("LoginScene");
         }
 

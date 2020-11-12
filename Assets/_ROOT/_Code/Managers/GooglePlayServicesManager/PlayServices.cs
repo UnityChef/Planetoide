@@ -78,7 +78,7 @@ public class PlayServices : MonoBehaviour
         Social.ShowAchievementsUI();
     }
 
-    public void UnlockAchievement(E_AchievementType p_achievementType)
+    public void UnlockAchievement(E_AchievementType p_achievementType) //lgsus
     {
         if (!Social.localUser.authenticated)
             return;
@@ -95,7 +95,7 @@ public class PlayServices : MonoBehaviour
         }
     }
 
-    public void UpdateAchievementValue(E_AchievementType p_achievementType)
+    public void UpdateAchievementValue(E_AchievementType p_achievementType) //lgsus
     {
         if (!Social.localUser.authenticated)
             return;
